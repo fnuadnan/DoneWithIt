@@ -1,16 +1,17 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TextStyle, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 
 interface Props {
   title: React.ReactNode;
-  onPress: () => void;
+  onPress?: () => void;
+  cssProp?: TextStyle;
 }
 
-const AppButton = ({ title, onPress }: Props) => {
+const AppButton = ({ title, onPress, cssProp }: Props) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
+    <TouchableOpacity style={[styles.button, cssProp]} onPress={onPress}>
       <AppText cssProp={styles.text}>{title}</AppText>
     </TouchableOpacity>
   );

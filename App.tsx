@@ -1,12 +1,10 @@
-import { StyleSheet, View } from "react-native";
-import AppButton from "./components/AppButton";
+import { StyleSheet } from "react-native";
+import WelcomeScreen from "./screens/WelcomeScreen";
 
 export default function App() {
   return (
     <>
-      <View style={styles.container}>
-        <AppButton title="Login" onPress={() => console.log("Tapped")} />
-      </View>
+      <WelcomeScreen />
     </>
   );
 }
