@@ -1,6 +1,8 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
+import mosh from "../assets/mosh.jpg";
 import AppText from "../components/AppText";
+import ListItem from "../components/ListItem";
 import colors from "../config/colors";
 
 interface Props {
@@ -16,6 +18,9 @@ const ListingDetailScreen = ({ title, price, image }: Props) => {
       <View style={styles.detailsContainer}>
         <AppText cssProp={styles.title}>{title}</AppText>
         <AppText cssProp={styles.price}>{price}</AppText>
+        <View style={{ marginVertical: 40 }}>
+          <ListItem title="Fnu Adnan" subTitle="5 Listings" image={mosh} />
+        </View>
       </View>
     </View>
   );
