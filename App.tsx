@@ -1,14 +1,14 @@
-import { StyleSheet, View } from "react-native";
-import Card from "./components/Card";
-
+import { StyleSheet } from "react-native";
 import jacket from "./assets/jacket.jpg";
+import ListingDetailScreen from "./screens/ListingDetailScreen";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Card title="Red jacket for sale" subTitle="$100" image={jacket} />
-      <Card title="Red jacket for sale" subTitle="$100" image={jacket} />
-    </View>
+    <ListingDetailScreen
+      title="Red jacket for sale"
+      price="$100"
+      image={jacket}
+    />
   );
 }
 
