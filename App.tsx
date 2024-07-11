@@ -1,15 +1,8 @@
 import { StyleSheet } from "react-native";
-import jacket from "./assets/jacket.jpg";
-import ListingDetailScreen from "./screens/ListingDetailScreen";
+import ViewImageScreen from "./screens/ViewImageScreen";
 
 export default function App() {
-  return (
-    <ListingDetailScreen
-      title="Red jacket for sale"
-      price="$100"
-      image={jacket}
-    />
-  );
+  return <ViewImageScreen />;
 }
 
 const styles = StyleSheet.create({
