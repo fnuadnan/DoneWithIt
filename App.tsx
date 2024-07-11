@@ -1,11 +1,12 @@
-import { StyleSheet } from "react-native";
-import ViewImageScreen from "./screens/ViewImageScreen";
+import { StyleSheet, View } from "react-native";
+import AppButton from "./components/AppButton";
 
 export default function App() {
   return (
     <>
-      {/* <WelcomeScreen /> */}
-      <ViewImageScreen />
+      <View style={styles.container}>
+        <AppButton title="Login" onPress={() => console.log("Tapped")} />
+      </View>
     </>
   );
 }
@@ -13,9 +14,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "tomato",
-    height: 100,
-    width: 100,
     alignItems: "center",
     justifyContent: "center",
   },
