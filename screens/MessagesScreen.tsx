@@ -4,23 +4,11 @@ import ListItem from "../components/ListItem";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
 import ListItemSeparator from "../components/ListItemSeparator";
 import Screen from "../components/Screen";
-import { Message } from "../entities";
+import { Message, Messages } from "../entities";
 
 const MessagesScreen = () => {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: 1,
-      title: "T1",
-      description: "D1",
-      image: require("../assets/mosh.jpg"),
-    },
-    {
-      id: 2,
-      title: "T2",
-      description: "D2",
-      image: require("../assets/mosh.jpg"),
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>(Messages);
+  const [refreshing, setRefreshing] = useState(false);
 
   const handleDelete = (message: Message) => {
     setMessages(messages.filter((m) => m.id !== message.id));
@@ -45,6 +33,10 @@ const MessagesScreen = () => {
           />
         )}
         ItemSeparatorComponent={() => <ListItemSeparator />}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages(Messages);
+        }}
       />
     </Screen>
   );
