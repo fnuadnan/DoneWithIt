@@ -19,3 +19,5 @@ export const Messages: Message[] = [
     image: require("./assets/mosh.jpg"),
   },
 ];
+
+export type IconName = "email" | "format-list-bulleted";
