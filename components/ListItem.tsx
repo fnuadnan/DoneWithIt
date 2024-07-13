@@ -9,9 +9,10 @@ import AppText from "./AppText";
 
 interface Props {
   title: string;
-  subTitle: string;
-  image: object;
-  onPress: () => void;
+  subTitle?: string;
+  image?: object;
+  imageComponent?: JSX.Element;
+  onPress?: () => void;
   renderRightActions?: () => JSX.Element;
 }
 
@@ -19,6 +20,7 @@ const ListItem = ({
   title,
   subTitle,
   image,
+  imageComponent,
   onPress,
   renderRightActions,
 }: Props) => {
@@ -27,18 +29,25 @@ const ListItem = ({
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
           <View style={styles.container}>
-            <Image
-              source={image}
-              style={{
-                height: 70,
-                width: 70,
-                borderRadius: 35,
-                marginRight: 10,
-              }}
-            />
-            <View>
+            {/*Dynamically render the image or icon*/}
+            {image ? (
+              <Image
+                source={image}
+                style={{
+                  height: 70,
+                  width: 70,
+                  borderRadius: 35,
+                }}
+              />
+            ) : (
+              imageComponent
+            )}
+            {/*Dynamically render the image or icon*/}
+            <View style={{ marginLeft: 10, justifyContent: "center" }}>
               <AppText cssProp={styles.title}>{title}</AppText>
-              <AppText cssProp={styles.subTitle}>{subTitle}</AppText>
+              {subTitle && (
+                <AppText cssProp={styles.subTitle}>{subTitle}</AppText>
+              )}
             </View>
           </View>
         </TouchableHighlight>
@@ -53,6 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     padding: 15,
+    backgroundColor: colors.white,
   },
   title: {
     fontWeight: "500",
