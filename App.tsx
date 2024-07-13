@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import MessagesScreen from "./screens/MessagesScreen";
+import { StyleSheet } from "react-native";
+import MyAccountScreen from "./screens/AccountScreen";
 
 export default function App() {
   return (
-    <View>
-      <MessagesScreen />
-    </View>
+    <>
+      <MyAccountScreen />
+    </>
   );
 }
 

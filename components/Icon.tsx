@@ -6,7 +6,7 @@ import { IconName } from "../entities";
 
 interface Props {
   name: IconName;
-  size: number;
+  size?: number;
   backgroundColor: string;
   iconColor: string;
 }

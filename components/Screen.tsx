@@ -4,17 +4,20 @@ import { SafeAreaView, StyleSheet } from "react-native";
 
 interface Props {
   children: React.ReactNode;
+  cssProp?: object;
 }
 
-const Screen = ({ children }: Props) => {
-  return <SafeAreaView style={styles.screen}>{children}</SafeAreaView>;
+const Screen = ({ children, cssProp }: Props) => {
+  return (
+    <SafeAreaView style={[styles.screen, cssProp]}>{children}</SafeAreaView>
+  );
 };
 
 export default Screen;
 
 const styles = StyleSheet.create({
   screen: {
-    height: "100%",
+    flex: 1,
     paddingTop: Constants.statusBarHeight, // or Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
