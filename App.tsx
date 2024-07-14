@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import MyAccountScreen from "./screens/AccountScreen";
+import ListingsScreen from "./screens/ListingsScreen";
 
 export default function App() {
   return (
     <>
-      <MyAccountScreen />
+      <ListingsScreen />
     </>
   );
 }
