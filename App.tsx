@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet } from "react-native";
+import AppTextInput from "./components/AppTextInput";
 import Screen from "./components/Screen";
 
 export default function App() {
@@ -8,14 +9,7 @@ export default function App() {
 
   return (
     <Screen>
-      <TextInput
-        secureTextEntry
-        clearButtonMode="always"
-        keyboardType="numeric"
-        style={{ borderBottomColor: "#ccc", borderBottomWidth: 1 }}
-        placeholder="First Name"
-        onChangeText={(text) => setFirstName(text)}
-      />
+      <AppTextInput icon="email" textProps={{ placeholder: "email" }} />
     </Screen>
   );
 }

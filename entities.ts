@@ -65,3 +65,11 @@ export const listings = [
     image: require("./assets/couch.jpg"),
   },
 ];
+
+export type textProps = {
+  placeholder?: string;
+  onChangeText?: (text: string) => void;
+  value?: string;
+  secureTextEntry?: boolean;
+  keyboardType?: "default" | "email-address" | "numeric" | "phone-pad";
+};
