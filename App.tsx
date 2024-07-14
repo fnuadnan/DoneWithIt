@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet } from "react-native";
 import AppPicker from "./components/AppPicker";
 import AppTextInput from "./components/AppTextInput";
 import Screen from "./components/Screen";
+import { categories } from "./entities";
 
 export default function App() {
-  const [isNew, setIsNew] = useState(false);
-  console.log(isNew);
-
   return (
     <Screen>
-      <AppPicker icon="apps" placeholder="Category" />
+      <AppPicker items={categories} icon="apps" placeholder="Category" />
       <AppTextInput icon="email" textProps={{ placeholder: "Email" }} />
     </Screen>
   );

@@ -2,6 +2,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import {
   Button,
+  FlatList,
   Modal,
   StyleSheet,
   TouchableWithoutFeedback,
@@ -10,14 +11,16 @@ import {
 import defaultStyle from "../config/styles";
 import { IconName } from "../entities";
 import AppText from "./AppText";
+import PickerItem from "./PickerItem";
 import Screen from "./Screen";
 
 interface Props {
   icon?: IconName;
   placeholder: string;
+  items: { label: string; value: number }[]; // we can come and make type in entities.ts
 }
 
-const AppPicker = ({ icon, placeholder }: Props) => {
+const AppPicker = ({ icon, placeholder, items }: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -43,6 +46,16 @@ const AppPicker = ({ icon, placeholder }: Props) => {
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
           <Button title="Close" onPress={() => setModalVisible(false)} />
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={({ item }) => (
+              <PickerItem
+                label={item.label}
+                onPress={() => console.log(item)}
+              />
+            )}
+          />
         </Screen>
       </Modal>
     </>
