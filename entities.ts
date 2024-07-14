@@ -22,7 +22,7 @@ export const Messages: Message[] = [
   },
 ];
 
-export type IconName = "email" | "format-list-bulleted" | "logout";
+export type IconName = "email" | "format-list-bulleted" | "logout" | "apps";
 
 export type IconsProps = {
   name: IconName;
