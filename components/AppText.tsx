@@ -1,6 +1,6 @@
 import React from "react";
-import { Platform, StyleSheet, Text, TextStyle } from "react-native";
-import colors from "../config/colors";
+import { Text, TextStyle } from "react-native";
+import defaultStyle from "../config/styles";
 
 interface Props {
   children: React.ReactNode; // Required prop for the text
@@ -8,18 +8,8 @@ interface Props {
 }
 
 export default function AppText({ children, cssProp }: Props) {
-  return <Text style={[styles.text, cssProp]}>{children}</Text>;
+  return <Text style={[defaultStyle.text, cssProp]}>{children}</Text>;
 }
-
-const styles = StyleSheet.create({
-  text: {
-    color: colors.black,
-    ...Platform.select({
-      ios: { fontFamily: "Avenir", fontSize: 20 },
-      android: { fontFamily: "Roboto", fontSize: 18 },
-    }),
-  },
-});
 
 // This is a simple component that renders a Text component with some default styles.
 // The component accepts two props:
