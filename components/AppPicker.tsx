@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import defaultStyle from "../config/styles";
-import { IconName } from "../entities";
+import { Category, IconName } from "../entities";
 import AppText from "./AppText";
 import PickerItem from "./PickerItem";
 import Screen from "./Screen";
@@ -17,10 +17,18 @@ import Screen from "./Screen";
 interface Props {
   icon?: IconName;
   placeholder: string;
-  items: { label: string; value: number }[]; // we can come and make type in entities.ts
+  items: Category[];
+  onSelectItem: (item: Category) => void;
+  selectedItem?: Category;
 }
 
-const AppPicker = ({ icon, placeholder, items }: Props) => {
+const AppPicker = ({
+  icon,
+  placeholder,
+  items,
+  onSelectItem,
+  selectedItem,
+}: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -35,7 +43,9 @@ const AppPicker = ({ icon, placeholder, items }: Props) => {
               style={styles.icon}
             />
           )}
-          <AppText cssProp={styles.text}>{placeholder}</AppText>
+          <AppText cssProp={styles.text}>
+            {selectedItem ? selectedItem.label : placeholder}
+          </AppText>
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -52,7 +62,10 @@ const AppPicker = ({ icon, placeholder, items }: Props) => {
             renderItem={({ item }) => (
               <PickerItem
                 label={item.label}
-                onPress={() => console.log(item)}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
               />
             )}
           />

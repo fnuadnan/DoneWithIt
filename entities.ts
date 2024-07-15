@@ -79,3 +79,8 @@ export const categories = [
   { label: "Clothing", value: 2 },
   { label: "Camera", value: 3 },
 ];
+
+export type Category = {
+  label: string;
+  value: number;
+};
