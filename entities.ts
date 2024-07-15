@@ -22,7 +22,12 @@ export const Messages: Message[] = [
   },
 ];
 
-export type IconName = "email" | "format-list-bulleted" | "logout" | "apps";
+export type IconName =
+  | "email"
+  | "format-list-bulleted"
+  | "logout"
+  | "apps"
+  | "lock";
 
 export type IconsProps = {
   name: IconName;
@@ -71,7 +76,38 @@ export type textProps = {
   onChangeText?: (text: string) => void;
   value?: string;
   secureTextEntry?: boolean;
+  autoCorrect?: boolean;
   keyboardType?: "default" | "email-address" | "numeric" | "phone-pad";
+  autoCapitalize?: "none" | "sentences" | "words" | "characters";
+  textContentType?:
+    | "none"
+    | "URL"
+    | "addressCity"
+    | "addressCityAndState"
+    | "addressState"
+    | "countryName"
+    | "creditCardNumber"
+    | "emailAddress"
+    | "familyName"
+    | "fullStreetAddress"
+    | "givenName"
+    | "jobTitle"
+    | "location"
+    | "middleName"
+    | "name"
+    | "namePrefix"
+    | "nameSuffix"
+    | "nickname"
+    | "organizationName"
+    | "postalCode"
+    | "streetAddressLine1"
+    | "streetAddressLine2"
+    | "sublocality"
+    | "telephoneNumber"
+    | "username"
+    | "password"
+    | "newPassword"
+    | "oneTimeCode";
 };
 
 export const categories = [
