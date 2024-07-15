@@ -1,43 +1,56 @@
-import React, { useState } from "react";
+import React from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Image, StyleSheet } from "react-native";
 import AppButton from "../components/AppButton";
 import AppTextInput from "../components/AppTextInput";
 import Screen from "../components/Screen";
 
 const LoginScreen = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { control, handleSubmit } = useForm();
 
   return (
     <Screen cssProp={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-      <AppTextInput
-        icon="email"
-        textProps={{
-          autoCapitalize: "none",
-          autoCorrect: false,
-          keyboardType: "email-address",
-          placeholder: "Email",
-          textContentType: "emailAddress",
-          onChangeText: (text: string) => {
-            setEmail(text);
-          },
-        }}
+      <Controller
+        control={control}
+        name="email"
+        render={({ field: { onChange, value } }) => (
+          <AppTextInput
+            icon="email"
+            textProps={{
+              autoCapitalize: "none",
+              autoCorrect: false,
+              keyboardType: "email-address",
+              placeholder: "Email",
+              textContentType: "emailAddress",
+              onChangeText: onChange,
+              value: value,
+            }}
+          />
+        )}
       />
-      <AppTextInput
-        icon="lock"
-        textProps={{
-          autoCapitalize: "none",
-          autoCorrect: false,
-          placeholder: "Password",
-          secureTextEntry: true,
-          textContentType: "password",
-          onChangeText: (text: string) => {
-            setPassword(text);
-          },
-        }}
+      <Controller
+        control={control}
+        name="password"
+        render={({ field: { onChange, value } }) => (
+          <AppTextInput
+            icon="lock"
+            textProps={{
+              autoCapitalize: "none",
+              autoCorrect: false,
+              placeholder: "Password",
+              secureTextEntry: true,
+              textContentType: "password",
+              onChangeText: onChange,
+              value: value,
+            }}
+          />
+        )}
       />
-      <AppButton title="Login" onPress={() => console.log(email, password)} />
+      <AppButton
+        title="Login"
+        onPress={handleSubmit((data) => console.log(data))}
+      />
     </Screen>
   );
 };
