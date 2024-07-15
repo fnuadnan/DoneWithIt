@@ -1,16 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Image, StyleSheet, Text } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import { z } from "zod";
 import AppButton from "../components/AppButton";
 import AppTextInput from "../components/AppTextInput";
+import ErrorMessage from "../components/ErrorMessage";
 import Screen from "../components/Screen";
-
-const schema = z.object({
-  email: z.string().email("Invalid email").min(5, "Email is too short"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
-});
 
 const LoginScreen = () => {
   const { control, handleSubmit, reset } = useForm({
@@ -40,7 +36,7 @@ const LoginScreen = () => {
                 value: value,
               }}
             />
-            {error && <Text style={{ color: "red" }}>{error.message}</Text>}
+            <ErrorMessage error={error?.message} />
           </>
         )}
       />
@@ -61,7 +57,7 @@ const LoginScreen = () => {
                 value: value,
               }}
             />
-            {error && <Text style={{ color: "red" }}>{error.message}</Text>}
+            <ErrorMessage error={error?.message} />
           </>
         )}
       />
@@ -69,6 +65,10 @@ const LoginScreen = () => {
     </Screen>
   );
 };
+const schema = z.object({
+  email: z.string().email("Invalid email").min(5, "Email is too short"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+});
 
 export default LoginScreen;
 
