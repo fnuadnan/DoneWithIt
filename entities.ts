@@ -76,6 +76,7 @@ export type textProps = {
   onChangeText?: (text: string) => void;
   value?: string;
   secureTextEntry?: boolean;
+  onBlur?: () => void;
   autoCorrect?: boolean;
   keyboardType?: "default" | "email-address" | "numeric" | "phone-pad";
   autoCapitalize?: "none" | "sentences" | "words" | "characters";

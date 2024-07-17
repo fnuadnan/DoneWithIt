@@ -1,69 +1,43 @@
-import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
-import { Controller, useForm } from "react-hook-form";
 import { Image, StyleSheet } from "react-native";
-import { z } from "zod";
 import AppFormField from "../components/AppFormField";
 import Screen from "../components/Screen";
 import SubmitButton from "../components/SubmitButton";
+import useAppForm from "../hooks/useAppForm";
 
 const LoginScreen = () => {
-  const { control, handleSubmit, reset } = useForm({
-    resolver: zodResolver(schema),
-  });
-  const onSubmit = (data: any) => {
-    console.log(data);
-    reset(); // Optionally reset the form after submission
-  };
+  const { control, handleSubmit, onSubmit } = useAppForm();
   return (
     <Screen cssProp={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-      <Controller
+      <AppFormField
         control={control}
+        icon="email"
         name="email"
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <AppFormField
-            icon="email"
-            error={error}
-            textProps={{
-              autoCapitalize: "none",
-              autoCorrect: false,
-              keyboardType: "email-address",
-              placeholder: "Email",
-              textContentType: "emailAddress",
-              onChangeText: onChange,
-              value: value,
-            }}
-          />
-        )}
+        textProps={{
+          autoCapitalize: "none",
+          autoCorrect: false,
+          keyboardType: "email-address",
+          placeholder: "Email",
+          textContentType: "emailAddress",
+        }}
       />
-      <Controller
+      <AppFormField
         control={control}
+        icon="lock"
         name="password"
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <AppFormField
-            icon="lock"
-            error={error}
-            textProps={{
-              autoCapitalize: "none",
-              autoCorrect: false,
-              placeholder: "Password",
-              secureTextEntry: true,
-              textContentType: "password",
-              onChangeText: onChange,
-              value: value,
-            }}
-          />
-        )}
+        textProps={{
+          autoCapitalize: "none",
+          autoCorrect: false,
+          placeholder: "Password",
+          secureTextEntry: true,
+          textContentType: "password",
+        }}
       />
       <SubmitButton title="Login" handleSubmit={handleSubmit(onSubmit)} />
     </Screen>
   );
 };
-const schema = z.object({
-  email: z.string().email("Invalid email").min(5, "Email is too short"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
-});
 
 export default LoginScreen;
 
