@@ -2,12 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const schema = z.object({
-  email: z.string().email("Invalid email").min(5, "Email is too short"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
-});
-
-const useAppForm = () => {
+const useAppForm = (schema: z.ZodObject<any, any, any>) => {
   const {
     control,
     handleSubmit,
@@ -28,3 +23,4 @@ const useAppForm = () => {
 export default useAppForm;
 
 // This is a custom hook that uses the useForm hook from react-hook-form to manage form state.
+// It takes a schema as an argument and uses zodResolver to validate the form data.

@@ -5,7 +5,7 @@ import AppTextInput from "../AppTextInput";
 import ErrorMessage from "./ErrorMessage";
 
 interface AppFormFieldProps {
-  icon: IconName;
+  icon?: IconName;
   textProps?: textProps;
   name: string;
   control: Control<any>;

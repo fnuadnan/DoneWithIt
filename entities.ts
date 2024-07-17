@@ -27,7 +27,8 @@ export type IconName =
   | "format-list-bulleted"
   | "logout"
   | "apps"
-  | "lock";
+  | "lock"
+  | "account";
 
 export type IconsProps = {
   name: IconName;
