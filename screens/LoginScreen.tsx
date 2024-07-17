@@ -4,8 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { Image, StyleSheet } from "react-native";
 import { z } from "zod";
 import AppButton from "../components/AppButton";
-import AppTextInput from "../components/AppTextInput";
-import ErrorMessage from "../components/ErrorMessage";
+import AppFormField from "../components/AppFormField";
 import Screen from "../components/Screen";
 
 const LoginScreen = () => {
@@ -23,42 +22,38 @@ const LoginScreen = () => {
         control={control}
         name="email"
         render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <>
-            <AppTextInput
-              icon="email"
-              textProps={{
-                autoCapitalize: "none",
-                autoCorrect: false,
-                keyboardType: "email-address",
-                placeholder: "Email",
-                textContentType: "emailAddress",
-                onChangeText: onChange,
-                value: value,
-              }}
-            />
-            <ErrorMessage error={error?.message} />
-          </>
+          <AppFormField
+            icon="email"
+            error={error}
+            textProps={{
+              autoCapitalize: "none",
+              autoCorrect: false,
+              keyboardType: "email-address",
+              placeholder: "Email",
+              textContentType: "emailAddress",
+              onChangeText: onChange,
+              value: value,
+            }}
+          />
         )}
       />
       <Controller
         control={control}
         name="password"
         render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <>
-            <AppTextInput
-              icon="lock"
-              textProps={{
-                autoCapitalize: "none",
-                autoCorrect: false,
-                placeholder: "Password",
-                secureTextEntry: true,
-                textContentType: "password",
-                onChangeText: onChange,
-                value: value,
-              }}
-            />
-            <ErrorMessage error={error?.message} />
-          </>
+          <AppFormField
+            icon="lock"
+            error={error}
+            textProps={{
+              autoCapitalize: "none",
+              autoCorrect: false,
+              placeholder: "Password",
+              secureTextEntry: true,
+              textContentType: "password",
+              onChangeText: onChange,
+              value: value,
+            }}
+          />
         )}
       />
       <AppButton title="Login" onPress={handleSubmit(onSubmit)} />
