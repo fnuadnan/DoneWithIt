@@ -35,3 +35,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
+// This is the AppButton component.
+// It's a simple button component that takes
+//      title: string
+//      onPress: function
+//      cssProp:  object
+//  The title prop is the text that will be displayed on the button.
+//  The onPress prop is a function that will be called when the button is pressed. 
+//  The cssProp prop is an object that can be used to style the button.

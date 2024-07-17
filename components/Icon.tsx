@@ -34,3 +34,13 @@ const Icon = ({
 };
 
 export default Icon;
+
+// This is an icon reusable component that takes four props:
+//      name: IconName
+//      size: number
+//      backgroundColor: string
+//      iconColor: string
+// The name prop is the name of the icon that will be displayed.
+// The size prop is the size of the icon.
+// The backgroundColor prop is the background color of the icon.
+// The iconColor prop is the color of the icon.

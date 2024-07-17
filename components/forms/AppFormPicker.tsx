@@ -35,3 +35,12 @@ const AppFormPicker = ({ items, name, control, placeholder, icon }: Props) => {
 };
 
 export default AppFormPicker;
+
+// This is a reusable component for a form picker field.
+// It uses the Controller component from react-hook-form to manage the form state.
+// The AppFormPicker component takes the following props:
+//      items: The list of items to display in the picker.
+//      name: The name of the field in the form.
+//      control: The control object from react-hook-form.
+//      placeholder: The placeholder text for the picker.
+//      icon: The name of the icon to display next to the picker.

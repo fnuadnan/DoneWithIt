@@ -44,3 +44,10 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
 });
+
+// This component is just like the TextInput from react native but with some additional features.
+// It takes two props:
+//      icon: IconName
+//      textProps: object
+// The icon prop is the name of the icon that will be displayed on the left side of the input field.
+// The textProps prop is an object that can be used to pass additional props to the TextInput component.

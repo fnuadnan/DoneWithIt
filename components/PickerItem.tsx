@@ -21,3 +21,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
+
+// This is a reusable component for the picker item.
+//      label: string
+//      onPress: () => void
+// The label prop is the text that will be displayed.
+// The onPress prop is the function that will be called when the item is pressed.

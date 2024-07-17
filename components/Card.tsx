@@ -42,3 +42,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
+// This is the Card component that will be used to display the product details in the app.
+// The component takes three props:
+//      title,
+//      subTitle
+//      image.
+//  The title and subTitle props are used to display the product title and price, respectively.
+//  The image prop is used to display the product image

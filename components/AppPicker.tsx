@@ -99,3 +99,20 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+// This is the AppPicker component.
+// It's a dropdown picker component that takes
+//      icon: IconName
+//      placeholder: string
+//      items: Category[]
+//      onSelectItem: function
+//      selectedItem: Category
+//  The icon prop is the icon that will be displayed on the left side of the picker.
+//  The placeholder prop is the text that will be displayed when no item is selected.
+//  The items prop is an array of objects with label and value properties.
+//  The onSelectItem prop is a function that will be called when an item is selected.
+//  The selectedItem prop is the currently selected item.
+//
+//  The component uses a Modal to display the list of items when the user clicks on the picker.
+//  It uses a FlatList to render the list of items.
+//  It uses the PickerItem component to render each item in the list.
