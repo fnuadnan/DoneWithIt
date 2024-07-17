@@ -3,9 +3,9 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Image, StyleSheet } from "react-native";
 import { z } from "zod";
-import AppButton from "../components/AppButton";
 import AppFormField from "../components/AppFormField";
 import Screen from "../components/Screen";
+import SubmitButton from "../components/SubmitButton";
 
 const LoginScreen = () => {
   const { control, handleSubmit, reset } = useForm({
@@ -56,7 +56,7 @@ const LoginScreen = () => {
           />
         )}
       />
-      <AppButton title="Login" onPress={handleSubmit(onSubmit)} />
+      <SubmitButton title="Login" handleSubmit={handleSubmit(onSubmit)} />
     </Screen>
   );
 };
