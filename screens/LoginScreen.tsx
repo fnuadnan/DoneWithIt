@@ -1,8 +1,7 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
-import AppFormField from "../components/AppFormField";
+import { AppFormField, SubmitButton } from "../components/forms";
 import Screen from "../components/Screen";
-import SubmitButton from "../components/SubmitButton";
 import useAppForm from "../hooks/useAppForm";
 
 const LoginScreen = () => {

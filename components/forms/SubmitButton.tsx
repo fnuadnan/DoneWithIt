@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import AppButton from "./AppButton";
+import AppButton from "../AppButton";
 
 interface SubmitButtonProps {
   title: string;
@@ -14,3 +14,7 @@ const SubmitButton = ({ title, handleSubmit }: SubmitButtonProps) => {
 export default SubmitButton;
 
 const styles = StyleSheet.create({});
+
+// This is a simple component that renders an AppButton pass as props with the:
+//      title
+//       onPress

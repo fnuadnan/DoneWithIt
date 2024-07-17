@@ -26,3 +26,5 @@ const useAppForm = () => {
 };
 
 export default useAppForm;
+
+// This is a custom hook that uses the useForm hook from react-hook-form to manage form state.

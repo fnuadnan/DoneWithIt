@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import AppText from "./AppText";
+import AppText from "../AppText";
 
 interface Props {
   error: string | undefined;
@@ -19,3 +19,7 @@ const styles = StyleSheet.create({
     color: "red",
   },
 });
+
+// This is a simple component that displays an error message.
+// If the error prop is not passed, it returns null.
+// Otherwise, it displays the error message in red text.
