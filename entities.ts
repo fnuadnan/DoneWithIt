@@ -13,6 +13,7 @@ export type IconName =
   | "logout"
   | "apps"
   | "lock"
+  | "chevron-right"
   | "account";
 
 // icon props

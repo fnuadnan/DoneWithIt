@@ -1,3 +1,4 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
 import {
@@ -43,12 +44,17 @@ const ListItem = ({
               imageComponent
             )}
             {/*Dynamically render the image or icon*/}
-            <View style={{ marginLeft: 10, justifyContent: "center" }}>
+            <View style={{ marginLeft: 10, justifyContent: "center", flex: 1 }}>
               <AppText cssProp={styles.title}>{title}</AppText>
               {subTitle && (
                 <AppText cssProp={styles.subTitle}>{subTitle}</AppText>
               )}
             </View>
+            <MaterialCommunityIcons
+              color={colors.medium}
+              name="chevron-right"
+              size={25}
+            />
           </View>
         </TouchableHighlight>
       </Swipeable>
@@ -61,6 +67,7 @@ export default ListItem;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    alignItems: "center",
     padding: 15,
     backgroundColor: colors.white,
   },
