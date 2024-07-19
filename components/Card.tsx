@@ -14,8 +14,12 @@ const Card = ({ title, subTitle, image }: Props) => {
     <View style={styles.card}>
       <Image source={image} style={{ height: 200, width: "100%" }} />
       <View style={styles.detailsContainer}>
-        <AppText cssProp={styles.title}>{title}</AppText>
-        <AppText cssProp={styles.subTitle}>{subTitle}</AppText>
+        <AppText numberOfLines={1} cssProp={styles.title}>
+          {title}
+        </AppText>
+        <AppText numberOfLines={2} cssProp={styles.subTitle}>
+          {subTitle}
+        </AppText>
       </View>
     </View>
   );

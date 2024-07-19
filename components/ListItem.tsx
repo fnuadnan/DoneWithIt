@@ -45,9 +45,13 @@ const ListItem = ({
             )}
             {/*Dynamically render the image or icon*/}
             <View style={{ marginLeft: 10, justifyContent: "center", flex: 1 }}>
-              <AppText cssProp={styles.title}>{title}</AppText>
+              <AppText numberOfLines={1} cssProp={styles.title}>
+                {title}
+              </AppText>
               {subTitle && (
-                <AppText cssProp={styles.subTitle}>{subTitle}</AppText>
+                <AppText numberOfLines={2} cssProp={styles.subTitle}>
+                  {subTitle}
+                </AppText>
               )}
             </View>
             <MaterialCommunityIcons

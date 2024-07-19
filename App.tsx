@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import ListItem from "./components/ListItem";
+import Card from "./components/Card";
 
 export default function App() {
   return (
-    <ListItem
-      title="My Title"
-      subTitle="My Subtitle"
-      image={require("./assets/mosh.jpg")}
+    <Card
+      title="Red jacket for sale"
+      subTitle="$100"
+      image={require("./assets/jacket.jpg")}
     />
   );
 }
