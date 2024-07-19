@@ -1,6 +1,7 @@
 // AppFormPicker.js
 import React from "react";
 import { Control, Controller } from "react-hook-form";
+import { DimensionValue } from "react-native";
 import { Category, IconName } from "../../entities";
 import AppPicker from "../AppPicker";
 import ErrorMessage from "./ErrorMessage";
@@ -11,9 +12,17 @@ interface Props {
   control: Control<any>;
   placeholder: string;
   icon?: IconName;
+  width?: DimensionValue;
 }
 
-const AppFormPicker = ({ items, name, control, placeholder, icon }: Props) => {
+const AppFormPicker = ({
+  items,
+  name,
+  control,
+  placeholder,
+  icon,
+  width = "100%",
+}: Props) => {
   return (
     <Controller
       control={control}
@@ -26,6 +35,7 @@ const AppFormPicker = ({ items, name, control, placeholder, icon }: Props) => {
             placeholder={placeholder}
             onSelectItem={(item) => onChange(item.value)}
             selectedItem={items.find((item) => item.value === value)}
+            width={width}
           />
           {error && <ErrorMessage error={error.message} />}
         </>

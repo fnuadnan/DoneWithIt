@@ -2,6 +2,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import {
   Button,
+  DimensionValue,
   FlatList,
   Modal,
   StyleSheet,
@@ -20,6 +21,7 @@ interface Props {
   items: Category[];
   onSelectItem: (item: Category) => void;
   selectedItem?: Category;
+  width?: DimensionValue;
 }
 
 const AppPicker = ({
@@ -28,13 +30,14 @@ const AppPicker = ({
   items,
   onSelectItem,
   selectedItem,
+  width = "100%",
 }: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}

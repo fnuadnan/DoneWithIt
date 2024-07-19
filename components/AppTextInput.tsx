@@ -1,17 +1,18 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import { DimensionValue, StyleSheet, TextInput, View } from "react-native";
 import defaultStyle from "../config/styles";
 import { IconName, textProps } from "../entities";
 
 interface Props {
   icon?: IconName;
   textProps?: textProps; // textProps is an object with key-value pairs
+  width?: DimensionValue;
 }
 
-const AppTextInput = ({ icon, textProps }: Props) => {
+const AppTextInput = ({ icon, textProps, width = "100%" }: Props) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { width }]}>
       {icon && (
         <MaterialCommunityIcons
           name={icon}
@@ -36,7 +37,6 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyle.colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
     padding: 15,
     marginVertical: 10,
   },

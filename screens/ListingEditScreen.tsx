@@ -25,6 +25,7 @@ const ListingEditScreen = () => {
         control={control}
         name="price"
         textProps={{ placeholder: "Price" }}
+        width={120}
       />
       <AppFormPicker
         control={control}
@@ -35,6 +36,7 @@ const ListingEditScreen = () => {
           { label: "Camera", value: 3 },
         ]}
         placeholder="Category"
+        width="50%"
       />
       <AppFormField
         control={control}

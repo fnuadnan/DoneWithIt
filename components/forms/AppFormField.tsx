@@ -1,5 +1,6 @@
 import React from "react";
 import { Control, Controller } from "react-hook-form";
+import { DimensionValue } from "react-native";
 import { IconName, textProps } from "../../entities";
 import AppTextInput from "../AppTextInput";
 import ErrorMessage from "./ErrorMessage";
@@ -9,6 +10,7 @@ interface AppFormFieldProps {
   textProps?: textProps;
   name: string;
   control: Control<any>;
+  width?: DimensionValue;
 }
 
 const AppFormField = ({
@@ -16,6 +18,7 @@ const AppFormField = ({
   textProps,
   name,
   control,
+  width,
 }: AppFormFieldProps) => {
   return (
     <Controller
@@ -27,6 +30,7 @@ const AppFormField = ({
       }) => (
         <>
           <AppTextInput
+            width={width}
             icon={icon}
             textProps={{
               ...textProps,

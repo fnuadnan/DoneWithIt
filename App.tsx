@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
-import MessagesScreen from "./screens/MessagesScreen";
+import ListingEditScreen from "./screens/ListingEditScreen";
 
 export default function App() {
-  return <MessagesScreen />;
+  return <ListingEditScreen />;
 }
 
 const styles = StyleSheet.create({});
