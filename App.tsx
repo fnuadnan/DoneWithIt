@@ -1,15 +1,8 @@
-import React from "react";
 import { StyleSheet } from "react-native";
-import Card from "./components/Card";
+import MessagesScreen from "./screens/MessagesScreen";
 
 export default function App() {
-  return (
-    <Card
-      title="Red jacket for sale"
-      subTitle="$100"
-      image={require("./assets/jacket.jpg")}
-    />
-  );
+  return <MessagesScreen />;
 }
 
 const styles = StyleSheet.create({});

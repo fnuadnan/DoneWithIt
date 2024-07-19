@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { FlatList, Platform, StatusBar, StyleSheet } from "react-native";
+import { FlatList } from "react-native";
 import ListItem from "../components/ListItem";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
 import ListItemSeparator from "../components/ListItemSeparator";
 import Screen from "../components/Screen";
-import { Message, Messages } from "../entities";
+import { Messages } from "../data";
+import { Message } from "../entities";
 
 const MessagesScreen = () => {
   const [messages, setMessages] = useState<Message[]>(Messages);
@@ -43,9 +44,3 @@ const MessagesScreen = () => {
 };
 
 export default MessagesScreen;
-
-const styles = StyleSheet.create({
-  screen: {
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
