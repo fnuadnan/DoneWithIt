@@ -1,5 +1,5 @@
 import colors from "./config/colors";
-import { IconName, Message } from "./entities";
+import { Category, IconName, Message } from "./entities";
 
 // messages data
 export const Messages: Message[] = [
@@ -59,4 +59,67 @@ export const categories = [
   { label: "Furniture", value: 1 },
   { label: "Clothing", value: 2 },
   { label: "Camera", value: 3 },
+];
+
+export const items: Category[] = [
+  {
+    label: "Furniture",
+    value: 1,
+    backgroundColor: "red",
+    icon: "apps",
+  },
+  {
+    label: "Clothing",
+    value: 2,
+    backgroundColor: "green",
+    icon: "email",
+  },
+  {
+    label: "Electronics",
+    value: 3,
+    backgroundColor: "blue",
+    icon: "lock",
+  },
+  {
+    label: "Games",
+    value: 4,
+    icon: "cards",
+    backgroundColor: "#26de81",
+  },
+  {
+    label: "Books",
+    value: 5,
+    icon: "book",
+    backgroundColor: "#2bcbba",
+  },
+  {
+    label: "Movies & Music",
+    value: 6,
+    icon: "headphones",
+    backgroundColor: "#45aaf2",
+  },
+  {
+    label: "Sports",
+    value: 7,
+    icon: "basketball",
+    backgroundColor: "#4b7bec",
+  },
+  {
+    label: "Other",
+    value: 8,
+    icon: "account",
+    backgroundColor: "#fc5c65",
+  },
+  {
+    label: "Shoes",
+    value: 9,
+    icon: "shoe-heel",
+    backgroundColor: "#fd9644",
+  },
+  {
+    label: "Beauty",
+    value: 10,
+    icon: "cards",
+    backgroundColor: "#fed330",
+  },
 ];
