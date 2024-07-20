@@ -22,6 +22,8 @@ interface Props {
   onSelectItem: (item: Category) => void;
   selectedItem?: Category;
   width?: DimensionValue;
+  PickerItemComponent: any;
+  numberOfColumns?: number;
 }
 
 const AppPicker = ({
@@ -31,6 +33,8 @@ const AppPicker = ({
   onSelectItem,
   selectedItem,
   width = "100%",
+  PickerItemComponent = PickerItem,
+  numberOfColumns = 1,
 }: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -62,10 +66,12 @@ const AppPicker = ({
         <Screen>
           <Button title="Close" onPress={() => setModalVisible(false)} />
           <FlatList
+            numColumns={numberOfColumns}
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
+                item={item}
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);
@@ -110,12 +116,16 @@ const styles = StyleSheet.create({
 //      items: Category[]
 //      onSelectItem: function
 //      selectedItem: Category
+//      width: DimensionValue
+//      PickerItemComponent: any
 //  The icon prop is the icon that will be displayed on the left side of the picker.
 //  The placeholder prop is the text that will be displayed when no item is selected.
 //  The items prop is an array of objects with label and value properties.
 //  The onSelectItem prop is a function that will be called when an item is selected.
 //  The selectedItem prop is the currently selected item.
-//
+//  The width prop is the width of the picker.
+//  The PickerItemComponent prop is the component that will be used to render the items in the list.
+
 //  The component uses a Modal to display the list of items when the user clicks on the picker.
 //  It uses a FlatList to render the list of items.
 //  It uses the PickerItem component to render each item in the list.

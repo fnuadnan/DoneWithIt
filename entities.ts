@@ -14,6 +14,14 @@ export type IconName =
   | "apps"
   | "lock"
   | "chevron-right"
+  | "floor-lamp"
+  | "car"
+  | "camera"
+  | "cards"
+  | "shoe-heel"
+  | "basketball"
+  | "headphones"
+  | "book"
   | "account";
 
 // icon props
@@ -69,4 +77,6 @@ export type textProps = {
 export type Category = {
   label: string;
   value: number;
+  backgroundColor?: string; // for the color of the icon
+  icon: IconName; // for the name of the icon
 };

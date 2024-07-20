@@ -1,5 +1,6 @@
 import React from "react";
 import { z } from "zod";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 import { AppFormField, SubmitButton } from "../components/forms";
 import AppFormPicker from "../components/forms/AppFormPicker";
 import Screen from "../components/Screen";
@@ -31,10 +32,69 @@ const ListingEditScreen = () => {
         control={control}
         name="category"
         items={[
-          { label: "Furniture", value: 1 },
-          { label: "Clothing", value: 2 },
-          { label: "Camera", value: 3 },
+          {
+            label: "Furniture",
+            value: 1,
+            backgroundColor: "red",
+            icon: "apps",
+          },
+          {
+            label: "Clothing",
+            value: 2,
+            backgroundColor: "green",
+            icon: "email",
+          },
+          {
+            label: "Electronics",
+            value: 3,
+            backgroundColor: "blue",
+            icon: "lock",
+          },
+          {
+            label: "Games",
+            value: 4,
+            icon: "cards",
+            backgroundColor: "#26de81",
+          },
+          {
+            label: "Books",
+            value: 5,
+            icon: "book",
+            backgroundColor: "#2bcbba",
+          },
+          {
+            label: "Movies & Music",
+            value: 6,
+            icon: "headphones",
+            backgroundColor: "#45aaf2",
+          },
+          {
+            label: "Sports",
+            value: 7,
+            icon: "basketball",
+            backgroundColor: "#4b7bec",
+          },
+          {
+            label: "Other",
+            value: 8,
+            icon: "account",
+            backgroundColor: "#fc5c65",
+          },
+          {
+            label: "Shoes",
+            value: 9,
+            icon: "shoe-heel",
+            backgroundColor: "#fd9644",
+          },
+          {
+            label: "Beauty",
+            value: 10,
+            icon: "cards",
+            backgroundColor: "#fed330",
+          },
         ]}
+        PickerItemComponent={CategoryPickerItem}
+        numberOfColumns={3}
         placeholder="Category"
         width="50%"
       />

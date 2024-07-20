@@ -7,8 +7,8 @@ import { IconName } from "../entities";
 interface Props {
   name: IconName;
   size?: number;
-  backgroundColor: string;
-  iconColor: string;
+  backgroundColor?: string;
+  iconColor?: string;
 }
 
 const Icon = ({

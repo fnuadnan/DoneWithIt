@@ -13,6 +13,8 @@ interface Props {
   placeholder: string;
   icon?: IconName;
   width?: DimensionValue;
+  PickerItemComponent?: any;
+  numberOfColumns?: number;
 }
 
 const AppFormPicker = ({
@@ -22,6 +24,8 @@ const AppFormPicker = ({
   placeholder,
   icon,
   width = "100%",
+  PickerItemComponent,
+  numberOfColumns = 1,
 }: Props) => {
   return (
     <Controller
@@ -30,6 +34,8 @@ const AppFormPicker = ({
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <>
           <AppPicker
+            numberOfColumns={numberOfColumns}
+            PickerItemComponent={PickerItemComponent}
             items={items}
             icon={icon}
             placeholder={placeholder}
