@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, TextStyle, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
-import AppText from "./AppText";
+import AppText from "./Text";
 
 interface Props {
   title: React.ReactNode;
@@ -42,5 +42,5 @@ const styles = StyleSheet.create({
 //      onPress: function
 //      cssProp:  object
 //  The title prop is the text that will be displayed on the button.
-//  The onPress prop is a function that will be called when the button is pressed. 
+//  The onPress prop is a function that will be called when the button is pressed.
 //  The cssProp prop is an object that can be used to style the button.

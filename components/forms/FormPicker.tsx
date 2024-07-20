@@ -3,7 +3,7 @@ import React from "react";
 import { Control, Controller } from "react-hook-form";
 import { DimensionValue } from "react-native";
 import { Category, IconName } from "../../entities";
-import AppPicker from "../AppPicker";
+import AppPicker from "../Picker";
 import ErrorMessage from "./ErrorMessage";
 
 interface Props {

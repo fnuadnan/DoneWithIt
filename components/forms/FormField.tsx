@@ -2,7 +2,7 @@ import React from "react";
 import { Control, Controller } from "react-hook-form";
 import { DimensionValue } from "react-native";
 import { IconName, textProps } from "../../entities";
-import AppTextInput from "../AppTextInput";
+import AppTextInput from "../TextInput";
 import ErrorMessage from "./ErrorMessage";
 
 interface AppFormFieldProps {

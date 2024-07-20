@@ -1,8 +1,8 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import mosh from "../assets/mosh.jpg";
-import AppText from "../components/AppText";
 import ListItem from "../components/ListItem";
+import AppText from "../components/Text";
 import colors from "../config/colors";
 
 interface Props {

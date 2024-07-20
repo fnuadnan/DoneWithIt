@@ -2,7 +2,7 @@ import React from "react";
 import { z } from "zod";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import { AppFormField, SubmitButton } from "../components/forms";
-import AppFormPicker from "../components/forms/AppFormPicker";
+import AppFormPicker from "../components/forms/FormPicker";
 import Screen from "../components/Screen";
 import { items } from "../data";
 import useAppForm from "../hooks/useAppForm";

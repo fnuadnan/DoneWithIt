@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { IconName } from "../entities";
-import AppText from "./AppText";
 import Icon from "./Icon";
+import AppText from "./Text";
 
 interface Props {
   onPress: () => void;

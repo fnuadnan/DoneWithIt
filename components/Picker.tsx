@@ -11,9 +11,9 @@ import {
 } from "react-native";
 import defaultStyle from "../config/styles";
 import { Category, IconName } from "../entities";
-import AppText from "./AppText";
 import PickerItem from "./PickerItem";
 import Screen from "./Screen";
+import AppText from "./Text";
 
 interface Props {
   icon?: IconName;
