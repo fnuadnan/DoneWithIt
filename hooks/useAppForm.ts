@@ -3,12 +3,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const useAppForm = (schema: z.ZodObject<any, any, any>) => {
-  const {
-    control,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
+  const { control, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: zodResolver(schema),
   });
 

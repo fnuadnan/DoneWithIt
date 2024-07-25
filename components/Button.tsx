@@ -4,7 +4,7 @@ import colors from "../config/colors";
 import AppText from "./Text";
 
 interface Props {
-  title: React.ReactNode;
+  title: string;
   onPress?: () => void;
   cssProp?: TextStyle;
 }
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// This is the AppButton component.
+// This is a Button component.
 // It's a simple button component that takes
 //      title: string
 //      onPress: function
