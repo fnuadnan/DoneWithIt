@@ -1,42 +1,27 @@
-import * as ImagePicker from "expo-image-picker";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { StyleSheet } from "react-native";
-import ImageInput from "./components/ImageInput";
+import ImageInputList from "./components/ImageInputList";
 import Screen from "./components/Screen";
 
 export default function App() {
-  const [imageUri, setImageUri] = useState<string | null>(null); // Image URI state
+  const [imageUris, setImageUris] = useState<string[]>([
+    "https://picsum.photos/200/300",
+  ]);
 
-  // Request permission to access the library
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (!granted) {
-      alert("You need to enable permission to access the library.");
-    }
+  const handleAdd = (uri: string) => {
+    setImageUris([...imageUris, uri]);
   };
 
-  useEffect(() => {
-    requestPermission();
-  }, []);
-
-  // Select image from the library
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.canceled) {
-        setImageUri(result.assets[0].uri);
-      }
-      3;
-    } catch (error) {
-      console.error("Error picking an image: ", error);
-    }
+  const handleRemove = (uri: string) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
   };
 
   return (
     <Screen>
-      <ImageInput
-        onChangeImage={(uri: string) => setImageUri(uri)}
-        imageUri={imageUri}
+      <ImageInputList
+        imageUris={imageUris}
+        onRemoveImage={handleRemove}
+        onAddImage={handleAdd}
       />
     </Screen>
   );
