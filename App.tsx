@@ -1,13 +1,21 @@
+import * as ImagePicker from "expo-image-picker";
+import { useEffect } from "react";
 import { StyleSheet } from "react-native";
 import Screen from "./components/Screen";
-import ListingEditScreen from "./screens/ListingEditScreen";
 
 export default function App() {
-  return (
-    <Screen>
-      <ListingEditScreen />
-    </Screen>
-  );
+  const requestPermission = async () => {
+    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!granted) {
+      alert("You need to enable permission to access the library.");
+    }
+  };
+
+  useEffect(() => {
+    requestPermission();
+  }, []);
+
+  return <Screen></Screen>;
 }
 
 const styles = StyleSheet.create({});
