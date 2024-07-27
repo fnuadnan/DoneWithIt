@@ -5,13 +5,14 @@ import ErrorMessage from "./ErrorMessage";
 
 interface FormImagePickerProps {
   control: any;
+  name: string;
 }
 
-const FormImagePicker = ({ control }: FormImagePickerProps) => {
+const FormImagePicker = ({ control, name }: FormImagePickerProps) => {
   return (
     <Controller
       control={control}
-      name="photo"
+      name={name}
       render={({
         field: { onChange, value },
         fieldState: { error, isTouched },
@@ -26,7 +27,7 @@ const FormImagePicker = ({ control }: FormImagePickerProps) => {
               )
             }
           />
-          {isTouched && error && <ErrorMessage error={error.message} />}
+          {error && <ErrorMessage error={error.message} />}
         </>
       )}
     />

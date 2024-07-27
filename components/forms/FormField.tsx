@@ -26,7 +26,7 @@ const AppFormField = ({
       name={name}
       render={({
         field: { onChange, onBlur, value },
-        fieldState: { error, isTouched },
+        fieldState: { error },
       }) => (
         <>
           <AppTextInput
@@ -40,7 +40,7 @@ const AppFormField = ({
             }}
           />
 
-          {isTouched && error && <ErrorMessage error={error.message} />}
+          {error && <ErrorMessage error={error.message} />}
         </>
       )}
     />

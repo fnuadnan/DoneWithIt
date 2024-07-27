@@ -2,6 +2,7 @@ import React from "react";
 import { z } from "zod";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import { AppFormField, SubmitButton } from "../components/forms";
+import FormImagePicker from "../components/forms/FormImagePicker";
 import AppFormPicker from "../components/forms/FormPicker";
 import Screen from "../components/Screen";
 import { items } from "../data";
@@ -12,12 +13,14 @@ const schema = z.object({
   price: z.string().min(1, "Price must be greater than 0"),
   category: z.number().min(1, "Category is required"),
   description: z.string().optional(),
+  images: z.array(z.string()).min(1, "Please select at least one image"),
 });
 
 const ListingEditScreen = () => {
   const { control, handleSubmit, onSubmit } = useAppForm(schema);
   return (
     <Screen>
+      <FormImagePicker control={control} name="images" />
       <AppFormField
         control={control}
         name="title"
