@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { StyleSheet } from "react-native";
-import ImageInputList from "./components/ImageInputList";
 import Screen from "./components/Screen";
+import Test from "./Test";
 
 export default function App() {
   const [imageUris, setImageUris] = useState<string[]>([
@@ -18,11 +18,13 @@ export default function App() {
 
   return (
     <Screen>
-      <ImageInputList
+      {/* <ImageInputList
         imageUris={imageUris}
         onRemoveImage={handleRemove}
         onAddImage={handleAdd}
-      />
+      /> */}
+
+      <Test />
     </Screen>
   );
 }
