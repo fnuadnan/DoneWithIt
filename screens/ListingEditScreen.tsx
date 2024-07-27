@@ -7,6 +7,7 @@ import AppFormPicker from "../components/forms/FormPicker";
 import Screen from "../components/Screen";
 import { items } from "../data";
 import useAppForm from "../hooks/useAppForm";
+import useLocation from "../hooks/useLocation";
 
 const schema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -18,6 +19,9 @@ const schema = z.object({
 
 const ListingEditScreen = () => {
   const { control, handleSubmit, onSubmit } = useAppForm(schema);
+  const location = useLocation();
+  console.log(location)
+
   return (
     <Screen>
       <FormImagePicker control={control} name="images" />
