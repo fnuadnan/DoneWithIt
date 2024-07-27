@@ -1,11 +1,12 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
+import { z } from "zod";
 import { AppFormField, SubmitButton } from "../components/forms";
 import Screen from "../components/Screen";
 import useAppForm from "../hooks/useAppForm";
 
 const LoginScreen = () => {
-  const { control, handleSubmit, onSubmit } = useAppForm();
+  const { control, handleSubmit, onSubmit } = useAppForm(schema);
   return (
     <Screen cssProp={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
@@ -37,6 +38,11 @@ const LoginScreen = () => {
     </Screen>
   );
 };
+
+const schema = z.object({
+  email: z.string().email("Invalid email").nonempty("Email is required"),
+  password: z.string().nonempty("Password is required"),
+});
 
 export default LoginScreen;
 

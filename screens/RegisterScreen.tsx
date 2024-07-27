@@ -1,11 +1,12 @@
 import React from "react";
 import { StyleSheet } from "react-native";
+import { z } from "zod";
 import Screen from "../components/Screen";
 import { AppFormField, SubmitButton } from "../components/forms";
 import useAppForm from "../hooks/useAppForm";
 
 const RegisterScreen = () => {
-  const { control, handleSubmit, onSubmit, errors } = useAppForm();
+  const { control, handleSubmit, onSubmit, errors } = useAppForm(schema);
   return (
     <Screen>
       <AppFormField
@@ -43,6 +44,12 @@ const RegisterScreen = () => {
     </Screen>
   );
 };
+
+const schema = z.object({
+  name: z.string(),
+  email: z.string().email("Invalid email").nonempty("Email is required"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});
 
 export default RegisterScreen;
 
