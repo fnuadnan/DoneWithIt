@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
-import ListingEditScreen from "./screens/ListingEditScreen";
+import WelcomeScreen from "./screens/WelcomeScreen";
 
 export default function App() {
-  return <ListingEditScreen />;
+  return ;
 }
 
 const styles = StyleSheet.create({});

@@ -8,8 +8,8 @@ const Test = () => {
   const onSubmit = (data: any) => console.log(data);
   return (
     <View>
-      <FormImagePicker control={control} />
-      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+      {/* <FormImagePicker control={control} />
+      <Button title="Submit" onPress={handleSubmit(onSubmit)} /> */}
     </View>
   );
 };

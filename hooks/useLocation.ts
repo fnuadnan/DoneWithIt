@@ -25,3 +25,6 @@ const useLocation = () => {
 };
 
 export default useLocation;
+
+// This component uses the Location API from Expo to get the user's current location.
+// It returns the location object containing the latitude and longitude values.
