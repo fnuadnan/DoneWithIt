@@ -9,7 +9,9 @@ const Tweets = ({ navigation }: any) => {
       <Text>Tweets</Text>
       <Button
         title="View Tweet"
-        onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
+        onPress={() =>
+          navigation.navigate("TweetDetails", { id: 1, title: "Default Title" })
+        }
       />
     </Screen>
   );
@@ -26,9 +28,23 @@ const TweetDetails = ({ route }: any) => {
 const Stack = createNativeStackNavigator();
 const StackNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: "dodgerblue" },
+        headerTintColor: "white",
+      }}
+    >
       <Stack.Screen name="Tweets" component={Tweets} />
-      <Stack.Screen name="TweetDetails" component={TweetDetails} />
+      <Stack.Screen
+        name="TweetDetails"
+        component={TweetDetails}
+        options={({ route }: any) => ({
+          // headerStyle: { backgroundColor: "tomato" },
+          headerTintColor: "white",
+          // headerShown: false,
+          title: route.params.title || "Default Title",
+        })}
+      />
     </Stack.Navigator>
   );
 };
@@ -42,3 +58,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({});
+
+// title (options)
+// custumizations heder both gloablly in the navigator and locally in each screen
