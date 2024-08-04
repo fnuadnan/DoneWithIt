@@ -1,8 +1,11 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Button, StyleSheet, Text } from "react-native";
+import { Button, Text } from "react-native";
 import Screen from "./components/Screen";
 
+// components
 const Tweets = ({ navigation }: any) => {
   return (
     <Screen>
@@ -25,6 +28,15 @@ const TweetDetails = ({ route }: any) => {
   );
 };
 
+const Account = () => {
+  return (
+    <Screen>
+      <Text>Account</Text>
+    </Screen>
+  );
+};
+
+// Stack Navigator
 const Stack = createNativeStackNavigator();
 const StackNavigator = () => {
   return (
@@ -49,15 +61,40 @@ const StackNavigator = () => {
   );
 };
 
+// Tab Navigator
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveBackgroundColor: "dodgerblue",
+        tabBarActiveTintColor: "white",
+      }}
+    >
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialCommunityIcons name="home" size={size} color={color} />
+          ),
+        }}
+        name="Feed"
+        component={StackNavigator}
+      />
+      <Tab.Screen name="Account" component={Account} />
+    </Tab.Navigator>
+  );
+};
+
 export default function App() {
   return (
     <NavigationContainer>
-      <StackNavigator />
+      {/* <StackNavigator /> */}
+      <TabNavigator />
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({});
-
-// title (options)
-// custumizations heder both gloablly in the navigator and locally in each screen
+// tab navigator
+// custom tab
+// stack navigator
