@@ -21,6 +21,7 @@ export const Messages: Message[] = [
 export const menuItems: {
   title: string;
   icon: { name: IconName; backgroundColor: string };
+  targetScreen?: string;
 }[] = [
   {
     title: "My Listings",
@@ -35,6 +36,7 @@ export const menuItems: {
       name: "email",
       backgroundColor: colors.secondary,
     },
+    targetScreen: "Messages",
   },
 ];
 

@@ -7,7 +7,7 @@ import Screen from "../components/Screen";
 import colors from "../config/colors";
 import { menuItems } from "../data";
 
-const MyAccountScreen = () => {
+const MyAccountScreen = ({ navigation }: any) => {
   return (
     <Screen cssProp={styles.container}>
       <View style={{ height: 100, marginVertical: 20 }}>
@@ -32,6 +32,7 @@ const MyAccountScreen = () => {
                   iconColor={colors.white}
                 />
               }
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
           ItemSeparatorComponent={() => <ListItemSeparator />}
