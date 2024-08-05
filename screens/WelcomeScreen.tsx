@@ -6,7 +6,7 @@ import AppButton from "../components/Button";
 import AppText from "../components/Text";
 import colors from "../config/colors";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }: any) => {
   return (
     <ImageBackground source={background} style={styles.background}>
       <View style={styles.logoContainer}>
@@ -14,8 +14,16 @@ const WelcomeScreen = () => {
         <AppText cssProp={styles.text}>Sell What You Don't Need</AppText>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login" cssProp={styles.loginButton} />
-        <AppButton title="Register" cssProp={styles.registerButton} />
+        <AppButton
+          title="Login"
+          cssProp={styles.loginButton}
+          onPress={() => navigation.navigate("Login")}
+        />
+        <AppButton
+          title="Register"
+          cssProp={styles.registerButton}
+          onPress={() => navigation.navigate("Register")}
+        />
       </View>
     </ImageBackground>
   );
