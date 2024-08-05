@@ -1,5 +1,11 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
+
 import colors from "../config/colors";
 import Text from "./Text";
 
@@ -7,21 +13,24 @@ interface Props {
   title: string;
   subTitle: string;
   image: object;
+  onPress?: () => void;
 }
 
-const Card = ({ title, subTitle, image }: Props) => {
+const Card = ({ title, subTitle, image, onPress }: Props) => {
   return (
-    <View style={styles.card}>
-      <Image source={image} style={{ height: 200, width: "100%" }} />
-      <View style={styles.detailsContainer}>
-        <Text numberOfLines={1} cssProp={styles.title}>
-          {title}
-        </Text>
-        <Text numberOfLines={2} cssProp={styles.subTitle}>
-          {subTitle}
-        </Text>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.card}>
+        <Image source={image} style={{ height: 200, width: "100%" }} />
+        <View style={styles.detailsContainer}>
+          <Text numberOfLines={1} cssProp={styles.title}>
+            {title}
+          </Text>
+          <Text numberOfLines={2} cssProp={styles.subTitle}>
+            {subTitle}
+          </Text>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -52,5 +61,7 @@ const styles = StyleSheet.create({
 //      title,
 //      subTitle
 //      image.
+//      onPress
 //  The title and subTitle props are used to display the product title and price, respectively.
 //  The image prop is used to display the product image
+//  The onPress prop is used to navigate to the product details screen when the card is pressed.

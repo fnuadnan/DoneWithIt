@@ -1,17 +1,12 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
-import mosh from "../assets/mosh.jpg";
 import ListItem from "../components/ListItem";
 import AppText from "../components/Text";
 import colors from "../config/colors";
 
-interface Props {
-  title: string;
-  price: string;
-  image: object;
-}
+const ListingDetailScreen = ({ route }: any) => {
+  const { title, price, image } = route.params;
 
-const ListingDetailScreen = ({ title, price, image }: Props) => {
   return (
     <View>
       <Image source={image} style={{ height: 300, width: "100%" }} />
@@ -19,7 +14,11 @@ const ListingDetailScreen = ({ title, price, image }: Props) => {
         <AppText cssProp={styles.title}>{title}</AppText>
         <AppText cssProp={styles.price}>{price}</AppText>
         <View style={{ marginVertical: 40 }}>
-          <ListItem title="Fnu Adnan" subTitle="5 Listings" image={mosh} />
+          <ListItem
+            title="Fnu Adnan"
+            subTitle="5 Listings"
+            image={require("../assets/mosh.jpg")}
+          />
         </View>
       </View>
     </View>

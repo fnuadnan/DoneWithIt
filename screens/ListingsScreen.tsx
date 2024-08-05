@@ -5,7 +5,7 @@ import Screen from "../components/Screen";
 import colors from "../config/colors";
 import { listings } from "../data";
 
-const ListingsScreen = () => {
+const ListingsScreen = ({ navigation }: any) => {
   return (
     <Screen cssProp={styles.container}>
       <FlatList
@@ -16,6 +16,7 @@ const ListingsScreen = () => {
             title={item.title}
             subTitle={"$" + item.price}
             image={item.image}
+            onPress={() => navigation.navigate("ListingDetails", item)}
           />
         )}
       />
