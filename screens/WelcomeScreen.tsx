@@ -5,6 +5,7 @@ import logo from "../assets/logo-red.png";
 import AppButton from "../components/Button";
 import AppText from "../components/Text";
 import colors from "../config/colors";
+import routes from "../navigation/routes";
 
 const WelcomeScreen = ({ navigation }: any) => {
   return (
@@ -17,12 +18,12 @@ const WelcomeScreen = ({ navigation }: any) => {
         <AppButton
           title="Login"
           cssProp={styles.loginButton}
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate(routes.LOGIN)}
         />
         <AppButton
           title="Register"
           cssProp={styles.registerButton}
-          onPress={() => navigation.navigate("Register")}
+          onPress={() => navigation.navigate(routes.REGISTER)}
         />
       </View>
     </ImageBackground>

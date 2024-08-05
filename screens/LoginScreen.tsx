@@ -41,7 +41,7 @@ const LoginScreen = () => {
 
 const schema = z.object({
   email: z.string().email("Invalid email").nonempty("Email is required"),
-  password: z.string().nonempty("Password is required"),
+  password: z.string(),
 });
 
 export default LoginScreen;
