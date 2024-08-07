@@ -1,14 +1,25 @@
 import React from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, Text } from "react-native";
+import ActivityIndicator from "../components/ActivityIndicator";
+import AppButton from "../components/Button";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
-import { listings } from "../data";
+import useFetch from "../hooks/useFetch";
 import routes from "../navigation/routes";
 
 const ListingsScreen = ({ navigation }: any) => {
+  const { data: listings, error, loading, loadListings } = useFetch();
+
   return (
     <Screen cssProp={styles.container}>
+      {error && (
+        <>
+          <Text>Couldn't retrieve the listings.</Text>
+          <AppButton title="Retry" onPress={loadListings} />
+        </>
+      )}
+      <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}

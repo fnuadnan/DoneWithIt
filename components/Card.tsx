@@ -12,7 +12,7 @@ import Text from "./Text";
 interface Props {
   title: string;
   subTitle: string;
-  image: object;
+  image: string;
   onPress?: () => void;
 }
 
@@ -20,7 +20,7 @@ const Card = ({ title, subTitle, image, onPress }: Props) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
-        <Image source={image} style={{ height: 200, width: "100%" }} />
+        <Image source={{ uri: image }} style={{ height: 200, width: "100%" }} />
         <View style={styles.detailsContainer}>
           <Text numberOfLines={1} cssProp={styles.title}>
             {title}
