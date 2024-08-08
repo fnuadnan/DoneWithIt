@@ -29,6 +29,16 @@ class APIClient<T> {
       throw new Error("Error fetching data");
     }
   }
+
+  // post data
+  async post(data: T) {
+    try {
+      const response = await axiosInstance.post<T>(this.endpoint, data);
+      return response.data;
+    } catch (error) {
+      throw new Error("Error fetching data");
+    }
+  }
 }
 
 export default APIClient;

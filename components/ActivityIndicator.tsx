@@ -17,7 +17,7 @@ const ActivityIndicator = ({ visible = false }: Props) => {
           height: 400,
         }}
         loop
-        source={require("../animations/loader.json")}
+        source={require("../assets/animations/loader.json")}
       />
     </View>
   );

@@ -9,7 +9,7 @@ const ListingDetailScreen = ({ route }: any) => {
 
   return (
     <View>
-      <Image source={image} style={{ height: 300, width: "100%" }} />
+      <Image source={{ uri: image }} style={{ height: 300, width: "100%" }} />
       <View style={styles.detailsContainer}>
         <AppText cssProp={styles.title}>{title}</AppText>
         <AppText cssProp={styles.price}>{price}</AppText>

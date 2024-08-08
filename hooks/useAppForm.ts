@@ -1,21 +1,27 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { Callbacks, Listings } from "../entities";
+import usePost from "./usePost";
 
-const useAppForm = (schema: z.ZodObject<any, any, any>) => {
-  const { control, handleSubmit, reset, formState: { errors } } = useForm({
-    resolver: zodResolver(schema),
-  });
+const useAppForm = (schema: any, { onSuccess, onError }: Callbacks) => {
+  const { post } = usePost();
+  const { control, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<Listings>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    reset(); // Optionally reset the form after submission
+  const onSubmit = async (data: Listings) => {
+    const success = await post(data);
+    if (success) {
+      reset(); // Optionally reset the form after submission
+      onSuccess();
+    } else {
+      onError("Error posting data");
+    }
   };
 
-  return { control, handleSubmit, onSubmit, errors };
+  return { control, handleSubmit, onSubmit, errors, isSubmitting };
 };
 
 export default useAppForm;
 
 // This is a custom hook that uses the useForm hook from react-hook-form to manage form state.
 // It takes a schema as an argument and uses zodResolver to validate the form data.
+// It also takes an object with onSuccess and onError callbacks.

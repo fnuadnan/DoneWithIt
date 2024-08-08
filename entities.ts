@@ -80,3 +80,21 @@ export type Category = {
   backgroundColor?: string; // for the color of the icon
   icon: IconName; // for the name of the icon
 };
+
+export type Listings = {
+  id?: number;
+  title: string;
+  images: string[];
+  price: number;
+  category: string;
+  location: {
+    latitude: number;
+    longitude: number;
+  };
+  description?: string;
+};
+
+export type Callbacks = {
+  onSuccess: () => void;
+  onError: (error: string) => void;
+};
