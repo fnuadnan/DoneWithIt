@@ -9,7 +9,7 @@ import useFetch from "../hooks/useFetch";
 import routes from "../navigation/routes";
 
 const ListingsScreen = ({ navigation }: any) => {
-  const { data: listings, error, loading, loadListings } = useFetch();
+  const { listings, error, loading, loadListings } = useFetch();
 
   return (
     <Screen cssProp={styles.container}>
@@ -27,7 +27,7 @@ const ListingsScreen = ({ navigation }: any) => {
           <Card
             title={item.title}
             subTitle={"$" + item.price}
-            image={item.image}
+            image={item.images[0]} // Display the first image
             onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />
         )}

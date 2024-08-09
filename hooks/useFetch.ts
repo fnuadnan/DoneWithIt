@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { Listing } from "../entities";
 import APIClient from "../services/api-clients";
+import useStore from "../store";
 
 //
 const apiClient = new APIClient<Listing>("/listings");
 
 const useFetch = () => {
-  const [data, setData] = useState<Listing[]>();
+  const { listings, setListings } = useStore();
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -14,7 +16,7 @@ const useFetch = () => {
     setLoading(true);
     try {
       const data = await apiClient.getAll();
-      setData(data);
+      setListings(data);
 
       setLoading(false);
     } catch (error) {
@@ -27,21 +29,7 @@ const useFetch = () => {
     loadListings();
   }, []);
 
-  return { data, error, loading, loadListings };
-};
-
-type Listing = {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  categoryId: number;
-  userId: number;
-  location: {
-    latitude: number;
-    longitude: number;
-  };
-  description?: string;
+  return { listings, error, loading, loadListings };
 };
 
 export default useFetch;

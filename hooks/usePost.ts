@@ -1,13 +1,20 @@
-import { Listings } from "../entities";
+import { Listing } from "../entities";
 import APIClient from "../services/api-clients";
+import useStore from "../store";
 
-const apiClient = new APIClient("/listings");
+const apiClient = new APIClient<Listing>("/listings");
 
 const usePost = () => {
-  const post = async (data: Listings): Promise<boolean> => {
+  const { addListing } = useStore();
+  const post = async (data: Listing): Promise<boolean> => {
     try {
       const response = await apiClient.post(data);
-      return response ? true : false;
+      if (response) {
+        addListing(response); // Add the new listing to the store
+        return true;
+      } else {
+        return false;
+      }
     } catch (error) {
       return false;
     }

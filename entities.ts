@@ -81,13 +81,13 @@ export type Category = {
   icon: IconName; // for the name of the icon
 };
 
-export type Listings = {
-  id?: number;
+export type Listing = {
+  id: number;
   title: string;
   images: string[];
   price: number;
   category: string;
-  location: {
+  location?: {
     latitude: number;
     longitude: number;
   };

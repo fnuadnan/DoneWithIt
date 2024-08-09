@@ -1,29 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import { Alert } from "react-native";
 import { z } from "zod";
-import CategoryPickerItem from "../components/CategoryPickerItem";
 import { AppFormField, SubmitButton } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
-import AppFormPicker from "../components/forms/FormPicker";
 import Screen from "../components/Screen";
-import { items } from "../data";
 import useAppForm from "../hooks/useAppForm";
-import useLocation from "../hooks/useLocation";
+import UploadScreen from "./UploadScreen";
 
 const schema = z.object({
   title: z.string().min(1, "Title is required"),
   price: z.string().min(1, "Price must be greater than 0"),
-  category: z.number().min(1, "Category is required"),
-  description: z.string().optional(),
+  category: z.string().min(1, "Category is required"),
+  description: z.string().min(1, "Description is required"),
   images: z.array(z.string()).min(1, "Please select at least one image"),
 });
 
-const ListingEditScreen = () => {
-  const { control, handleSubmit, onSubmit } = useAppForm(schema);
-  const location = useLocation();
-  console.log(location)
+const ListingEditScreen = ({ navigation }: any) => {
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadVisible, setUploadVisible] = useState(false);
+
+  // onSuccess and onError callbacks
+  const callbacks = {
+    onSuccess: () => {
+      setUploadVisible(false); // Hide progress screen
+      navigation.navigate("Listings");
+      console.log("Listing posted successfully");
+    },
+    onError: (error: string) => {
+      setUploadVisible(false); // Hide progress screen
+      Alert.alert("Error", error);
+    },
+  };
+
+  const { control, handleSubmit, onSubmit, isSubmitting } = useAppForm(
+    schema,
+    callbacks
+  );
 
   return (
     <Screen>
+      <UploadScreen visible={uploadVisible} progress={uploadProgress} />
       <FormImagePicker control={control} name="images" />
       <AppFormField
         control={control}
@@ -36,7 +52,7 @@ const ListingEditScreen = () => {
         textProps={{ placeholder: "Price" }}
         width={120}
       />
-      <AppFormPicker
+      {/* <AppFormPicker
         control={control}
         name="category"
         items={items}
@@ -44,6 +60,11 @@ const ListingEditScreen = () => {
         numberOfColumns={3}
         placeholder="Category"
         width="50%"
+      /> */}
+      <AppFormField
+        control={control}
+        name="category"
+        textProps={{ placeholder: "Category" }}
       />
       <AppFormField
         control={control}
