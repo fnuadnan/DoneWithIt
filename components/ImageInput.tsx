@@ -1,13 +1,7 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import React, { useEffect } from "react";
-import {
-  Alert,
-  Image,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-} from "react-native";
+import { Alert, Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import colors from "../config/colors";
 
 interface ImageInputProps {
