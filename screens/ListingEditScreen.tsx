@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Alert } from "react-native";
 import { z } from "zod";
 import { AppFormField, SubmitButton } from "../components/forms";
@@ -16,30 +16,21 @@ const schema = z.object({
 });
 
 const ListingEditScreen = ({ navigation }: any) => {
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [uploadVisible, setUploadVisible] = useState(false);
-
   // onSuccess and onError callbacks
   const callbacks = {
     onSuccess: () => {
-      setUploadVisible(false); // Hide progress screen
       navigation.navigate("Listings");
       console.log("Listing posted successfully");
     },
     onError: (error: string) => {
-      setUploadVisible(false); // Hide progress screen
       Alert.alert("Error", error);
     },
   };
 
-  const { control, handleSubmit, onSubmit, isSubmitting } = useAppForm(
-    schema,
-    callbacks
-  );
+  const { control, handleSubmit, onSubmit, isSubmitting } = useAppForm(schema, callbacks);
 
   return (
     <Screen>
-      <UploadScreen visible={uploadVisible} progress={uploadProgress} />
       <FormImagePicker control={control} name="images" />
       <AppFormField
         control={control}
@@ -72,8 +63,13 @@ const ListingEditScreen = ({ navigation }: any) => {
         textProps={{ placeholder: "Description" }}
       />
       <SubmitButton title="Post" handleSubmit={handleSubmit(onSubmit)} />
+
+      {/* Progress screen */}
+      {isSubmitting && <UploadScreen visible={isSubmitting} />}
     </Screen>
   );
 };
 
 export default ListingEditScreen;
+
+// this compoennt when submitting shows uploadScreen component after navigates
