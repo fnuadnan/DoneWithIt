@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://172.20.10.7:3000/api",
-});
+  baseURL: "http://192.168.1.91:3000/api",
+}); //192.168.1.91:8081
 
 class APIClient<T> {
   private endpoint: string;

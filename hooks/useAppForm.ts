@@ -20,7 +20,8 @@ const useAppForm = (schema: any, callbacks?: Callbacks)=> {
       callbacks?.onError && callbacks.onError("Error posting data"); // Check if onError is defined before calling
     }
 
-    // Simulate a delay to show the loading spinner in the UI
+    // if the code reaches this point, the submission is complete and isSubmitting should be set 
+    // to false  while simulating a delay to show the loading spinner in the UI
     setTimeout(() => {
       setSubmitting(false);  
     }
@@ -36,4 +37,5 @@ export default useAppForm;
 // It takes a schema as an argument and uses zodResolver to validate the form data.
 // It also takes an object with onSuccess and onError callbacks.
 // It returns the control, handleSubmit, onSubmit, and isSubmitting properties.
+
 
