@@ -29,7 +29,17 @@
     "extra": {
       "bugsnag": {
         "apiKey": "d4639b89942e73fb9d85d1e804a5579e"
+      },
+      "eas": {
+        "projectId": "f0a5b2db-2856-48c1-b53c-270a4e63d31c"
       }
+    },
+    "owner": "adnanadnan",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f0a5b2db-2856-48c1-b53c-270a4e63d31c"
     }
   }
 }
