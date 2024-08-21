@@ -1,8 +1,9 @@
 import axios from "axios";
 import cache from "../Utility/cache";
+import getCurrentSettings from "../config/settings";
 
 const axiosInstance = axios.create({
-  baseURL: "http://192.168.1.117:3000/api",
+  baseURL: getCurrentSettings().apiUrl,
 }); //192.168.1.91:8081
 
 class APIClient<T> {

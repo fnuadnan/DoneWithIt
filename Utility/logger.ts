@@ -1,4 +1,4 @@
-import Bugsnag from "@bugsnag/expo";
+import Bugsnag from "@bugsnag/expo"; 
 
 // log error to console and bugsnag
 const log = (error: string) => {
