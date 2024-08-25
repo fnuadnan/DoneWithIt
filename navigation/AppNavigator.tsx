@@ -25,7 +25,7 @@ const AppNavigator = () => {
       }
 
       const token = (await Notifications.getExpoPushTokenAsync()).data;
-      console.log("Expo Push Token:", token);
+      console.log("Expo Push Token:", token); // send to back end
     } catch (error) {
       console.log("Error getting a push token", error);
     }
