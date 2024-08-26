@@ -18,7 +18,7 @@ const App = () => {
   return (
     <>
       <OfflineNotice />
-      <NavigationContainer theme={navigationTheme}>
+      <NavigationContainer ref={navigationRef} theme={navigationTheme}>
         {/* <AuthNavigator /> */}
         <AppNavigator navigationRef={navigationRef} />
       </NavigationContainer>
