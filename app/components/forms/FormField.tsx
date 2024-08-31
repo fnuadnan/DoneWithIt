@@ -13,13 +13,7 @@ interface AppFormFieldProps {
   width?: DimensionValue;
 }
 
-const AppFormField = ({
-  icon,
-  textProps,
-  name,
-  control,
-  width,
-}: AppFormFieldProps) => {
+const AppFormField = ({ icon, textProps, name, control, width }: AppFormFieldProps) => {
   return (
     <Controller
       control={control}
