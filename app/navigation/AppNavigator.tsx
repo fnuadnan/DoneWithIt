@@ -21,6 +21,7 @@ const AppNavigator = ({ navigationRef }: Props) => {
 
   return (
     <Tab.Navigator>
+      {/* Feed Navigator */}
       <Tab.Screen
         name="Feed"
         component={FeedNavigator}
@@ -31,6 +32,7 @@ const AppNavigator = ({ navigationRef }: Props) => {
           ),
         }}
       />
+      {/* Listing Edit Screen */}
       <Tab.Screen
         name="ListingEdit"
         component={ListingEditScreen}
@@ -50,6 +52,7 @@ const AppNavigator = ({ navigationRef }: Props) => {
           ),
         })}
       />
+      {/* Account Navigator */}
       <Tab.Screen
         options={{
           headerShown: false,
