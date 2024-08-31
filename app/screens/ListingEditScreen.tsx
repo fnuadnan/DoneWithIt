@@ -27,7 +27,10 @@ const ListingEditScreen = ({ navigation }: any) => {
     },
   };
 
-  const { control, handleSubmit, onSubmit, isSubmitting } = useAppForm(schema, callbacks);
+  const { control, handleSubmit, onSubmit, isSubmitting } = useAppForm(
+    schema,
+    callbacks
+  );
 
   return (
     <Screen>
@@ -72,6 +75,6 @@ const ListingEditScreen = ({ navigation }: any) => {
 
 export default ListingEditScreen;
 
-// this compoennt when submitting shows uploadScreen component after navigates 
+// this compoennt when submitting shows uploadScreen component after navigates
 
 // come make after submiting if success show done

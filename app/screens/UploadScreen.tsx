@@ -22,7 +22,12 @@ const UploadScreen = ({ visible }: UploadScreeProps) => {
   useProgress(visible, setProgress, resetProgress);
 
   return (
-    <Modal visible={visible} animationType="slide" statusBarTranslucent transparent >
+    <Modal
+      visible={visible}
+      animationType="slide"
+      statusBarTranslucent
+      transparent
+    >
       <View style={styles.container}>
         {progress < 1 ? (
           <Progress.Bar
