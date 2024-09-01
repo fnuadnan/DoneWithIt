@@ -6,6 +6,7 @@ import { Category, IconName } from "../entities";
 import PickerItem from "./PickerItem";
 import Screen from "./Screen";
 import AppText from "./Text";
+import { useStore } from "zustand";
 
 interface Props {
   icon?: IconName;
@@ -20,7 +21,7 @@ interface Props {
 
 const AppPicker = ({ icon, placeholder, items, onSelectItem, selectedItem, width = "100%", PickerItemComponent = PickerItem, numberOfColumns = 1 }: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
-
+ 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
@@ -48,6 +49,7 @@ const AppPicker = ({ icon, placeholder, items, onSelectItem, selectedItem, width
                 onPress={() => {
                   setModalVisible(false);
                   onSelectItem(item);
+                  console.log(item);
                 }}
               />
             )}

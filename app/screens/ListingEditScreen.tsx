@@ -6,6 +6,9 @@ import FormImagePicker from "../components/forms/FormImagePicker";
 import Screen from "../components/Screen";
 import useAppForm from "../hooks/useAppForm";
 import UploadScreen from "./UploadScreen";
+import AppFormPicker from "../components/forms/FormPicker";
+import CategoryPickerItem from "../components/CategoryPickerItem";
+import { categories } from "../data";
 
 const schema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -35,8 +38,7 @@ const ListingEditScreen = ({ navigation }: any) => {
         <FormImagePicker control={control} name="images" />
         <AppFormField  control={control} name="title" textProps={{ placeholder: "Title" }} />
         <AppFormField  control={control} name="price" textProps={{ placeholder: "Price" }} width={120}/>
-        {/* <AppFormPicker control={control} name="category" items={items} PickerItemComponent={CategoryPickerItem} numberOfColumns={3} placeholder="Category" width="50%" /> */}
-        <AppFormField  control={control} name="category" textProps={{ placeholder: "Category" }} width='50%' />
+        <AppFormPicker control={control} name="category" items={categories} PickerItemComponent={CategoryPickerItem} numberOfColumns={3} placeholder="Category" width="50%"  />
         <AppFormField  control={control} name="description" textProps={{ placeholder: "Description" }} />
         <SubmitButton  cssProp={{ marginTop: 30 }} title="Post" handleSubmit={handleSubmit(onSubmit)} />
           {/* Progress screen */}
