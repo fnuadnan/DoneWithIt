@@ -10,15 +10,7 @@ const ActivityIndicator = ({ visible = false }: Props) => {
   if (!visible) return null;
   return (
     <View style={styles.container}>
-      <LottieView
-        autoPlay
-        style={{
-          width: 400,
-          height: 400,
-        }}
-        loop
-        source={require("../assets/animations/loader.json")}
-      />
+      <LottieView autoPlay style={{ width: 400, height: 400 }} loop source={require("../assets/animations/loader.json")} />
     </View>
   );
 };

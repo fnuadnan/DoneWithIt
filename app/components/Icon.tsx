@@ -1,6 +1,6 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import colors from "../config/colors";
 import { IconName } from "../entities";
 
@@ -11,12 +11,7 @@ interface Props {
   iconColor?: string;
 }
 
-const Icon = ({
-  name,
-  size = 40,
-  backgroundColor = colors.black,
-  iconColor = colors.white,
-}: Props) => {
+const Icon = ( { name, size = 40, backgroundColor = colors.black, iconColor = colors.white }: Props ) => {
   return (
     <View
       style={{

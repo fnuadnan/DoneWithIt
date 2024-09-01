@@ -17,16 +17,7 @@ interface Props {
   numberOfColumns?: number;
 }
 
-const AppFormPicker = ({
-  items,
-  name,
-  control,
-  placeholder,
-  icon,
-  width = "100%",
-  PickerItemComponent,
-  numberOfColumns = 1,
-}: Props) => {
+const AppFormPicker = ({ items, name, control, placeholder, icon, width = "100%", PickerItemComponent, numberOfColumns = 1 }: Props) => {
   return (
     <Controller
       control={control}

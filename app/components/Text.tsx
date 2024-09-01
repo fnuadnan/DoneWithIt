@@ -8,11 +8,7 @@ interface Props {
   numberOfLines?: number; // Optional prop for the number of lines to show
 }
 
-export default function AppText({
-  children,
-  cssProp,
-  numberOfLines = 1,
-}: Props) {
+export default function AppText({ children, cssProp, numberOfLines = 1}: Props) {
   return (
     <Text numberOfLines={numberOfLines} style={[defaultStyle.text, cssProp]}>
       {children}

@@ -1,14 +1,6 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import {
-  Button,
-  DimensionValue,
-  FlatList,
-  Modal,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-} from "react-native";
+import { Button, DimensionValue, FlatList, Modal, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import defaultStyle from "../config/styles";
 import { Category, IconName } from "../entities";
 import PickerItem from "./PickerItem";
@@ -26,40 +18,20 @@ interface Props {
   numberOfColumns?: number;
 }
 
-const AppPicker = ({
-  icon,
-  placeholder,
-  items,
-  onSelectItem,
-  selectedItem,
-  width = "100%",
-  PickerItemComponent = PickerItem,
-  numberOfColumns = 1,
-}: Props) => {
+const AppPicker = ({ icon, placeholder, items, onSelectItem, selectedItem, width = "100%", PickerItemComponent = PickerItem, numberOfColumns = 1 }: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <View style={[styles.container, { width }]}>
-          {icon && (
-            <MaterialCommunityIcons
-              name={icon}
-              size={20}
-              color={defaultStyle.colors.medium}
-              style={styles.icon}
-            />
-          )}
+          {icon && <MaterialCommunityIcons name={icon} size={20} color={defaultStyle.colors.medium} style={styles.icon} />}
           {selectedItem ? (
             <AppText cssProp={styles.text}>{selectedItem.label}</AppText>
           ) : (
             <AppText cssProp={styles.placeHolder}>{placeholder}</AppText>
           )}
-          <MaterialCommunityIcons
-            name="chevron-down"
-            size={20}
-            color={defaultStyle.colors.medium}
-          />
+          <MaterialCommunityIcons name="chevron-down" size={20} color={defaultStyle.colors.medium}/>
         </View>
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
