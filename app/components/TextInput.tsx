@@ -14,18 +14,9 @@ const AppTextInput = ({ icon, textProps, width = "100%" }: Props) => {
   return (
     <View style={[styles.container, { width }]}>
       {icon && (
-        <MaterialCommunityIcons
-          name={icon}
-          size={20}
-          color={defaultStyle.colors.medium}
-          style={styles.icon}
-        />
+        <MaterialCommunityIcons name={icon} size={20} color={defaultStyle.colors.medium} style={styles.icon}/>
       )}
-      <TextInput
-        placeholderTextColor={defaultStyle.colors.medium}
-        style={defaultStyle.text}
-        {...textProps}
-      />
+      <TextInput placeholderTextColor={defaultStyle.colors.medium} style={defaultStyle.text} {...textProps} />
     </View>
   );
 };

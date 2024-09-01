@@ -15,7 +15,7 @@ const FormImagePicker = ({ control, name }: FormImagePickerProps) => {
       name={name}
       render={({
         field: { onChange, value },
-        fieldState: { error, isTouched },
+        fieldState: { error },
       }) => (
         <>
           <ImageInputList

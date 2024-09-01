@@ -6,16 +6,8 @@ import usePost from "./usePost";
 
 const useAppForm = (schema: any, callbacks?: Callbacks) => {
   const { post } = usePost();
-  const { isSubmitting, setSubmitting } = useStore((state) => ({
-    isSubmitting: state.isSubmitting,
-    setSubmitting: state.setSubmitting,
-  }));
-  const {
-    control,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<Listing>({ resolver: zodResolver(schema) });
+  const { isSubmitting, setSubmitting } = useStore((state) => ( { isSubmitting: state.isSubmitting, setSubmitting: state.setSubmitting }));
+  const { control, handleSubmit, reset, formState: { errors } } = useForm<Listing>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: Listing) => {
     setSubmitting(true); // Manually set isSubmitting to true before submission

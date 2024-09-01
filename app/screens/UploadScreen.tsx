@@ -12,37 +12,17 @@ interface UploadScreeProps {
 
 const UploadScreen = ({ visible }: UploadScreeProps) => {
   // useStore hook to get the progress state and the setProgress and resetProgress functions
-  const { progress, setProgress, resetProgress } = useStore((state) => ({
-    progress: state.progress,
-    setProgress: state.setProgress,
-    resetProgress: state.resetProgress,
-  }));
+  const { progress, setProgress, resetProgress } = useStore((state) => ({ progress: state.progress, setProgress: state.setProgress, resetProgress: state.resetProgress }));
 
   // useProgress hook to update the progress of the upload screen
   useProgress(visible, setProgress, resetProgress);
 
   return (
-    <Modal
-      visible={visible}
-      animationType="slide"
-      statusBarTranslucent
-      transparent
-    >
+    <Modal visible={visible} animationType="slide" statusBarTranslucent transparent>
       <View style={styles.container}>
-        {progress < 1 ? (
-          <Progress.Bar
-            color={colors.primary}
-            progress={progress}
-            width={200}
-          />
-        ) : (
-          <LottieView
-            source={require("../assets/animations/done.json")}
-            autoPlay
-            loop={false}
-            style={styles.animation}
-          />
-        )}
+        { progress < 1 ? <Progress.Bar color={colors.primary} progress={progress} width={200}/>
+        : <LottieView source={require("../assets/animations/done.json")} autoPlay loop={false} style={styles.animation} />
+        }
       </View>
     </Modal>
   );
