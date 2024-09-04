@@ -27,7 +27,7 @@ const useAppForm = (schema: any, callbacks?: Callbacks) => {
     }, 6000);
   };
 
-  return { control, handleSubmit, onSubmit, errors, isSubmitting };
+  return { control, handleSubmit, onSubmit, errors, isSubmitting, reset };
 };
 
 export default useAppForm;

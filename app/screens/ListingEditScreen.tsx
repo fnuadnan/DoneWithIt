@@ -1,14 +1,15 @@
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Alert, View } from "react-native";
 import { z } from "zod";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 import { AppFormField, SubmitButton } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import AppFormPicker from "../components/forms/FormPicker";
 import Screen from "../components/Screen";
+import { categories } from "../data";
 import useAppForm from "../hooks/useAppForm";
 import UploadScreen from "./UploadScreen";
-import AppFormPicker from "../components/forms/FormPicker";
-import CategoryPickerItem from "../components/CategoryPickerItem";
-import { categories } from "../data";
 
 const schema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -30,7 +31,14 @@ const ListingEditScreen = ({ navigation }: any) => {
     },
   };
 
-  const { control, handleSubmit, onSubmit, isSubmitting } = useAppForm( schema, callbacks );
+  const { control, handleSubmit, onSubmit, isSubmitting, reset } = useAppForm( schema, callbacks );
+
+  // Reset form on screen focus
+  useFocusEffect(
+    React.useCallback(() => {
+      reset(); // Reset form when screen is focused
+    }, [reset])
+  );
 
   return (
     <Screen>
