@@ -11,7 +11,7 @@ const useAppForm = (schema: any, callbacks?: Callbacks) => {
 
   const onSubmit = async (data: Listing) => {
     setSubmitting(true); // Manually set isSubmitting to true before submission
-
+    
     const success = await post(data);
     if (success) {
       reset(); // Optionally reset the form after submission
