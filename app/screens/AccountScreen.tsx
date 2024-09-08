@@ -10,6 +10,7 @@ import { menuItems } from "../data";
 const MyAccountScreen = ({ navigation }: any) => {
   return (
     <Screen cssProp={styles.container}>
+      {/* User Info */}
       <View style={{ height: 100, marginVertical: 20 }}>
         <ListItem
           title="Mosh Hamedani"
@@ -17,7 +18,7 @@ const MyAccountScreen = ({ navigation }: any) => {
           image={require("../assets/mosh.jpg")}
         />
       </View>
-
+    
       <View style={{ marginVertical: 20 }}>
         <FlatList
           data={menuItems}
