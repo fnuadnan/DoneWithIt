@@ -31,7 +31,7 @@ const AppFormPicker = ({ items, name, control, placeholder, icon, width = "100%"
             icon={icon}
             placeholder={placeholder}
             onSelectItem={(item) => onChange(item.label)}
-            selectedItem={items.find((item) => item.value === value)}
+            selectedItem={items.find((item) => item.label === value)}
             width={width}
           />
           {error && <ErrorMessage error={error.message} />}
