@@ -5,8 +5,8 @@ import AppButton from "../components/Button";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
-import useFetch from "../hooks/useFetch";
 import routes from "../navigation/routes";
+import useFetch from "../services/hooks/useFetch";
 
 const ListingsScreen = ({ navigation }: any) => {
   const { listings, error, loading, loadListings } = useFetch();

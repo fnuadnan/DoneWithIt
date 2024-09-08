@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Listing } from "../entities";
-import APIClient from "../services/api-clients";
-import useStore from "../store";
+import { Listing } from "../../entities";
+import useStore from "../../store";
+import APIClient from "../api-clients";
 
 //
 const apiClient = new APIClient<Listing>("/listings");

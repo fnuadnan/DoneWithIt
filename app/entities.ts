@@ -79,19 +79,16 @@ export type Category = {
   value: number;
   backgroundColor?: string; // for the color of the icon
   icon: IconName; // for the name of the icon
-};
+}
 
 export type Listing = {
   id: number;
   title: string;
+  description: string;
   images: string[];
+  category: Category;
   price: number;
-  category: string;
-  location?: {
-    latitude: number;
-    longitude: number;
-  };
-  description?: string;
+  userId: number;
 };
 
 export type Callbacks = {

@@ -1,8 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Callbacks, Listing } from "../entities";
+import usePost from "../services/hooks/usePost";
 import useStore from "../store";
-import usePost from "./usePost";
 
 const useAppForm = (schema: any, callbacks?: Callbacks) => {
   const { post } = usePost();
@@ -11,8 +11,8 @@ const useAppForm = (schema: any, callbacks?: Callbacks) => {
 
   const onSubmit = async (data: Listing) => {
     setSubmitting(true); // Manually set isSubmitting to true before submission
-    
-    const success = await post(data);
+
+    const success = await post(data);                   
     if (success) {
       reset(); // Optionally reset the form after submission
       callbacks?.onSuccess && callbacks.onSuccess(); // Check if onSuccess is defined before calling
@@ -20,6 +20,7 @@ const useAppForm = (schema: any, callbacks?: Callbacks) => {
       callbacks?.onError && callbacks.onError("Error posting data"); // Check if onError is defined before calling
     }
 
+    console.log("submission complete", data);
     // if the code reaches this point, the submission is complete and isSubmitting should be set
     // to false  while simulating a delay to show the loading spinner in the UI
     setTimeout(() => {
