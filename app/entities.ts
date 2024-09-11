@@ -79,7 +79,7 @@ export type Category = {
   value: number;
   backgroundColor?: string; // for the color of the icon
   icon: IconName; // for the name of the icon
-}
+};
 
 export type Listing = {
   id: number;
@@ -94,4 +94,11 @@ export type Listing = {
 export type Callbacks = {
   onSuccess: () => void;
   onError: (error: string) => void;
+};
+
+export type User = {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
 };
