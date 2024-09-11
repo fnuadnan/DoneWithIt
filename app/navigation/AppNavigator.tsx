@@ -2,6 +2,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import useNotification from "../hooks/useNotification";
 import ListingEditScreen from "../screens/ListingEditScreen";
+import useUser from "../services/hooks/useUser";
 import AccountNavigator from "./AccountNavigator";
 import FeedNavigator from "./FeedNavigator";
 import NewListingButton from "./NewListingButton";
@@ -18,6 +19,9 @@ const AppNavigator = ({ navigationRef }: Props) => {
 
   // Setup notification listener with handler
   useNotification(handleNotification); // Provide custom handler
+
+  const { user } = useUser();
+  console.log(user);
 
   return (
     <Tab.Navigator>
