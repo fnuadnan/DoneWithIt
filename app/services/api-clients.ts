@@ -55,6 +55,16 @@ class APIClient<T> {
       throw new Error("Error fetching data");
     }
   }
+
+  // get user by id
+  async getUser(id: number) {
+    try {
+      const response = await axiosInstance.get<T>(this.endpoint);
+      return response.data;
+    } catch (error) {
+      throw new Error("Error fetching data");
+    }
+  }
 }
 
 export default APIClient;
