@@ -11,9 +11,10 @@ interface AppFormFieldProps {
   name: string;
   control: Control<any>;
   width?: DimensionValue;
+  keyboardType?: "default" | "email-address" | "numeric" | "phone-pad"; // Fix prop name here
 }
 
-const AppFormField = ({ icon, textProps, name, control, width }: AppFormFieldProps) => {
+const AppFormField = ({ icon, textProps, name, control, width, keyboardType }: AppFormFieldProps) => {
   return (
     <Controller
       control={control}
@@ -28,7 +29,16 @@ const AppFormField = ({ icon, textProps, name, control, width }: AppFormFieldPro
             icon={icon}
             textProps={{
               ...textProps,
-              onChangeText: onChange,
+              keyboardType: keyboardType || "default", // Correct prop to lowercase
+              onChangeText: (text) => {
+                if (keyboardType === "numeric") {
+                  // Convert the input value to a number before passing it to onChange
+                  const numericValue = text.replace(/[^0-9]/g, '');
+                  onChange(numericValue); // Convert string to number
+                } else {
+                  onChange(text);
+                }
+              },
               value,
               onBlur,
             }}

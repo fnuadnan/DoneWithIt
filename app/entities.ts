@@ -86,7 +86,7 @@ export type Listing = {
   title: string;
   description: string;
   images: string[];
-  category: Category;
+  category: string | Category;
   price: number;
   userId: string;
 };

@@ -1,4 +1,4 @@
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useFocusEffect } from "@react-navigation/native";
 import React from "react";
 import { Alert, View } from "react-native";
 import { z } from "zod";
@@ -13,7 +13,11 @@ import UploadScreen from "./UploadScreen";
 
 const schema = z.object({
   title: z.string().min(1, "Title is required"),
-  price: z.string().min(1, "Price must be greater than 0"),
+  price: z 
+    .string()
+    .min(1, "Price is required") // Ensure the input is not empty
+    .refine((val) => !isNaN(Number(val)) && Number(val) > 0, { message: "Price must be greater than 0" }) // Ensure it's a valid number and greater than 0
+    .transform((val) => Number(val)), // Convert the input to a number
   category: z.string().min(1, "Category is required"),
   description: z.string().min(1, "Description is required"),
   images: z.array(z.string()).min(1, "Please select at least one image"),
@@ -45,7 +49,7 @@ const ListingEditScreen = ({ navigation }: any) => {
       <View style={{ padding: 15 }}>
         <FormImagePicker control={control} name="images" />
         <AppFormField  control={control} name="title" textProps={{ placeholder: "Title" }} />
-        <AppFormField  control={control} name="price" textProps={{ placeholder: "Price" }} width={120}/>
+        <AppFormField  control={control} name="price" textProps={{ placeholder: "Price" }} width={120} keyboardType="numeric" />
         <AppFormPicker control={control} name="category" items={categories} PickerItemComponent={CategoryPickerItem} numberOfColumns={3} placeholder="Category" width="50%"  />
         <AppFormField  control={control} name="description" textProps={{ placeholder: "Description" }} />
         <SubmitButton  cssProp={{ marginTop: 30 }} title="Post" handleSubmit={handleSubmit(onSubmit)} />

@@ -4,6 +4,11 @@ import getCurrentSettings from "../config/settings";
 const axiosInstance = axios.create({
   baseURL: getCurrentSettings().apiUrl,
 }); //192.168.1.91:8081
+interface ApiResponse<T> {
+  message: string;
+  data: T;
+}
+
 
 class APIClient<T> {
   private endpoint: string;
@@ -56,9 +61,9 @@ class APIClient<T> {
   }
 
   // post data
-  async post(data: T) {
+  async post(data: T, id: string) {
     try {
-      const response = await axiosInstance.post<T>(this.endpoint, data);
+      const response = await axiosInstance.post<ApiResponse<T>>(this.endpoint + '/' + id, data);
       return response.data;
     } catch (error) {
       throw new Error("Error fetching data");
