@@ -3,8 +3,12 @@ import { Listing } from "../../entities";
 import useStore from "../../store";
 import APIClient from "../api-clients";
 
-//
-const apiClient = new APIClient<Listing>("/listings");
+interface ApiResponse<T> {
+  message: string;
+  data: T;
+}
+
+const apiClient = new APIClient<ApiResponse<Listing[]>>("/listings");
 
 const useFetch = () => {
   const { listings, setListings } = useStore();
@@ -15,8 +19,9 @@ const useFetch = () => {
     setError(""); // Reset the error before fetching data
     setLoading(true);
     try {
-      const data = await apiClient.getAll();
-      setListings(data);
+      const response = await apiClient.get("66e26993dcee50113374d571"); // for testing
+
+      setListings(response.data);
 
       setLoading(false);
     } catch (error) {

@@ -22,7 +22,7 @@ const ListingsScreen = ({ navigation }: any) => {
       <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
-        keyExtractor={(listing) => listing.id.toString()}
+        keyExtractor={(listing) => listing.id}
         renderItem={({ item }) => (
           <Card
             title={item.title}

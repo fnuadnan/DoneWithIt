@@ -82,13 +82,13 @@ export type Category = {
 };
 
 export type Listing = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   images: string[];
   category: Category;
   price: number;
-  userId: number;
+  userId: string;
 };
 
 export type Callbacks = {
