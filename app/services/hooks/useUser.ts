@@ -10,8 +10,8 @@ const useUser = () => {
 
   const fetchUser = async () => {
     try {
-      const user = await apiClient.getUser(1); // Fetch user with id 1
-      setUser(user); // Set user data
+      const response = await apiClient.getUser('66e26993dcee50113374d571'); // Fetch user with id 1
+      setUser(response.data); // Set user data
     } catch (error) {
       setError("Error fetching user");
       console.log(error);

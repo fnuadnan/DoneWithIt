@@ -71,9 +71,9 @@ class APIClient<T> {
   }
 
   // get user by id
-  async getUser(id: number) {
+  async getUser(id: string) {
     try {
-      const response = await axiosInstance.get<T>(this.endpoint);
+      const response = await axiosInstance.get<ApiResponse<T>>(this.endpoint + '/' + id);
       return response.data;
     } catch (error) {
       throw new Error("Error fetching data");
