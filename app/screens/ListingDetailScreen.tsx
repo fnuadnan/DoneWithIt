@@ -3,6 +3,7 @@ import { Image, StyleSheet, View } from "react-native";
 import ListItem from "../components/ListItem";
 import AppText from "../components/Text";
 import colors from "../config/colors";
+import { demoImage } from "../data";
 
 const ListingDetailScreen = ({ route }: any) => {
   const { title, price, images } = route.params;
@@ -14,7 +15,7 @@ const ListingDetailScreen = ({ route }: any) => {
         <AppText cssProp={styles.title}>{title}</AppText>
         <AppText cssProp={styles.price}>${price}</AppText>
         <View style={styles.userContainer}>
-          <ListItem title="Fnu Adnan" subTitle="5 Listings" image={require("../assets/mosh.jpg")}/>
+          <ListItem title="Fnu Adnan" subTitle="5 Listings" image={{uri: demoImage}}/>
         </View>
       </View>
     </View>

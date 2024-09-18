@@ -5,7 +5,7 @@ import ListItem from "../components/ListItem";
 import ListItemSeparator from "../components/ListItemSeparator";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
-import { menuItems } from "../data";
+import { demoImage, menuItems } from "../data";
 
 const MyAccountScreen = ({ navigation }: any) => {
   return (
@@ -13,9 +13,10 @@ const MyAccountScreen = ({ navigation }: any) => {
       {/* User Info */}
       <View style={{ height: 100, marginVertical: 20 }}>
         <ListItem
-          title="Mosh Hamedani"
+          title="Fnu Adnan"
           subTitle="fnu.adnan12@gmail.com"
-          image={require("../assets/mosh.jpg")}
+          image={{uri: demoImage}}
+          onPress={() => navigation.navigate("Edit Profile")}
         />
       </View>
     
