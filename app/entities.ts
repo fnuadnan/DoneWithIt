@@ -37,6 +37,7 @@ export type textProps = {
   placeholder?: string;
   onChangeText?: (text: string) => void;
   value?: string;
+  defaultValue?: string;
   secureTextEntry?: boolean;
   onBlur?: () => void;
   autoCorrect?: boolean;
@@ -97,7 +98,7 @@ export type Callbacks = {
 };
 
 export type User = {
-  id: number;
+  id: string;
   name: string;
   email: string;
   password: string;

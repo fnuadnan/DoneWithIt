@@ -1,10 +1,7 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
-import {
-  GestureHandlerRootView,
-  Swipeable,
-} from "react-native-gesture-handler";
+import { GestureHandlerRootView, Swipeable } from "react-native-gesture-handler";
 import colors from "../config/colors";
 import AppText from "./Text";
 
@@ -17,32 +14,14 @@ interface Props {
   renderRightActions?: () => JSX.Element;
 }
 
-const ListItem = ({
-  title,
-  subTitle,
-  image,
-  imageComponent,
-  onPress,
-  renderRightActions,
-}: Props) => {
+const ListItem = ({ title, subTitle, image, imageComponent, onPress, renderRightActions }: Props) => {
   return (
     <GestureHandlerRootView>
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
           <View style={styles.container}>
             {/*Dynamically render the image or icon*/}
-            {image ? (
-              <Image
-                source={image}
-                style={{
-                  height: 70,
-                  width: 70,
-                  borderRadius: 35,
-                }}
-              />
-            ) : (
-              imageComponent
-            )}
+            {image ? <Image source={image} style={{ height: 70, width: 70, borderRadius: 35}}/> : imageComponent }
             {/*Dynamically render the image or icon*/}
             <View style={{ marginLeft: 10, justifyContent: "center", flex: 1 }}>
               <AppText numberOfLines={1} cssProp={styles.title}>
