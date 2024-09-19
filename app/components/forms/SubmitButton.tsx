@@ -6,17 +6,13 @@ interface SubmitButtonProps {
   title: string;
   handleSubmit: () => void;
   cssProp?: ViewStyle;
+  disabled?: boolean;
 }
 
-const SubmitButton = ({ title, handleSubmit, cssProp }: SubmitButtonProps) => {
-  return <AppButton title={title} onPress={handleSubmit} cssProp={cssProp} />;
+const SubmitButton = ({ title, handleSubmit, cssProp, disabled }: SubmitButtonProps) => {
+  return <AppButton title={title} onPress={handleSubmit} cssProp={cssProp} disabled={disabled}/>;
 };
 
 export default SubmitButton;
 
 const styles = StyleSheet.create({});
-
-// This is a simple component that renders an AppButton pass as props with the:
-//      title
-//      onPress
-//      cssProp

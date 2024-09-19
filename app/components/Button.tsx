@@ -7,11 +7,12 @@ interface Props {
   title: string;
   onPress?: () => void;
   cssProp?: TextStyle;
+  disabled?: boolean;
 }
 
-const AppButton = ({ title, onPress, cssProp }: Props) => {
+const AppButton = ({ title, onPress, cssProp, disabled }: Props) => {
   return (
-    <TouchableOpacity style={[styles.button, cssProp]} onPress={onPress}>
+    <TouchableOpacity style={[ styles.button, cssProp, disabled && { backgroundColor: colors.lightGrey } ]} onPress={onPress} disabled={disabled}>
       <AppText cssProp={styles.text}>{title}</AppText>
     </TouchableOpacity>
   );
@@ -35,12 +36,3 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-
-// This is a Button component.
-// It's a simple button component that takes
-//      title: string
-//      onPress: function
-//      cssProp:  object
-//  The title prop is the text that will be displayed on the button.
-//  The onPress prop is a function that will be called when the button is pressed.
-//  The cssProp prop is an object that can be used to style the button.

@@ -8,6 +8,7 @@ export default {
   danger: "#ff5252",
   medium: "#6e6969",
   dark: "#0c0c0c",
+  lightGrey: "#d3d3d3",
 };
 
 // This is the colors configuration file that contains the color palette for the app.
