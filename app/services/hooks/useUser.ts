@@ -22,7 +22,7 @@ const useUser = () => {
     fetchUser(); // Triggers the asynchronous user fetching
   }, []);
 
-  return { user, error };
+  return { user, error, refresh: fetchUser };
 };
 
 export default useUser;

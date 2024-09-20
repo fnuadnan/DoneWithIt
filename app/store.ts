@@ -11,10 +11,6 @@ interface Store {
   progress: number;
   setProgress: (progress: number) => void;
   resetProgress: () => void;
-
-  // isSubmitting state
-  isSubmitting: boolean;
-  setSubmitting: (submitting: boolean) => void;
 }
 
 const useStore = create<Store>((set) => ({
@@ -29,9 +25,6 @@ const useStore = create<Store>((set) => ({
   setProgress: (progress: number) => set({ progress }),
   resetProgress: () => set({ progress: 0 }),
 
-  // isSubmitting state
-  isSubmitting: false,
-  setSubmitting: (submitting: boolean) => set({ isSubmitting: submitting }),
 }));
 
 export default useStore;
