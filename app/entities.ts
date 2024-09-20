@@ -92,11 +92,6 @@ export type Listing = {
   userId: string;
 };
 
-export type Callbacks = {
-  onSuccess: () => void;
-  onError: (error: string) => void;
-};
-
 export type User = {
   id: string;
   name: string;
