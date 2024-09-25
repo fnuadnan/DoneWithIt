@@ -6,7 +6,12 @@ import { AppFormField, SubmitButton } from "../components/forms";
 import useAppForm from "../hooks/useAppForm";
 
 const RegisterScreen = () => {
-  const { control, handleSubmit, onSubmit } = useAppForm(schema);
+  const { control, handleSubmit } = useAppForm(schema);
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
+
   return (
     <Screen>
       <AppFormField

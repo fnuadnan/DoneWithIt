@@ -6,7 +6,12 @@ import Screen from "../components/Screen";
 import useAppForm from "../hooks/useAppForm";
 
 const LoginScreen = () => {
-  const { control, handleSubmit, onSubmit } = useAppForm(schema);
+  const { control, handleSubmit } = useAppForm(schema);
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
+
   return (
     <Screen cssProp={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
