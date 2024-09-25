@@ -10,12 +10,13 @@ const AccountNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="AccountDetails" component={AccountScreen} />
-      <Stack.Screen name="Edit Profile" component={EditProfileScreen} />
-      <Stack.Screen name='MyListings' component={MyListingsScreen} />
-      <Stack.Screen name="Messages" component={MessagesScreen} />
 
-      {/* Listing Edit Screen */}
+      <Stack.Screen name="Edit Profile" component={EditProfileScreen} />
+
+      <Stack.Screen name='MyListings' component={MyListingsScreen} />
       <Stack.Screen name="ListingEdit" component={ListingEditScreen} /> 
+      
+      <Stack.Screen name="Messages" component={MessagesScreen} />
     </Stack.Navigator>
   );
 };

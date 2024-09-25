@@ -42,12 +42,7 @@ const MyListingsScreen = ({ navigation }: any) => {
         renderItem={({ item }) => (
           <View style={styles.cardContainer}>
             {/* Render Card Component */}
-            <Card
-              title={item.title}
-              subTitle={"$" + item.price}
-              image={item.images[0]} // Display the first image
-              // onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
-            />
+            <Card title={item.title} subTitle={"$" + item.price} image={item.images[0]} />
             
             {/* Menu Button inside Card */}
             <View style={styles.menuContainer}>
