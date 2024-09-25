@@ -12,12 +12,7 @@ const MyAccountScreen = ({ navigation }: any) => {
     <Screen cssProp={styles.container}>
       {/* User Info */}
       <View style={{ height: 100, marginVertical: 20 }}>
-        <ListItem
-          title="Fnu Adnan"
-          subTitle="fnu.adnan12@gmail.com"
-          image={{uri: demoImage}}
-          onPress={() => navigation.navigate("Edit Profile")}
-        />
+        <ListItem title="Fnu Adnan" subTitle="fnu.adnan12@gmail.com" image={{uri: demoImage}} onPress={() => navigation.navigate("Edit Profile")} />
       </View>
     
       <View style={{ marginVertical: 20 }}>
@@ -27,30 +22,14 @@ const MyAccountScreen = ({ navigation }: any) => {
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
-              imageComponent={
-                <Icon
-                  name={item.icon.name}
-                  backgroundColor={item.icon.backgroundColor}
-                  iconColor={colors.white}
-                />
-              }
+              imageComponent={ <Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} iconColor={colors.white} /> }
               onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
           ItemSeparatorComponent={() => <ListItemSeparator />}
         />
       </View>
-      <ListItem
-        title="Log Out"
-        imageComponent={
-          <Icon
-            name="logout"
-            backgroundColor="yellow"
-            iconColor={colors.white}
-            size={40}
-          />
-        }
-      />
+      <ListItem title="Log Out" imageComponent={ <Icon name="logout" backgroundColor="yellow" iconColor={colors.white} size={40} /> } />
     </Screen>
   );
 };

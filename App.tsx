@@ -3,6 +3,7 @@ import {
   NavigationContainer,
 } from "@react-navigation/native";
 import React from "react";
+import { Provider as PaperProvider } from "react-native-paper";
 import OfflineNotice from "./app/components/OfflineNotice";
 import AppNavigator from "./app/navigation/AppNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
@@ -20,7 +21,9 @@ const App = () => {
       <OfflineNotice />
       <NavigationContainer ref={navigationRef} theme={navigationTheme}>
         {/* <AuthNavigator /> */}
-        <AppNavigator navigationRef={navigationRef} />
+        <PaperProvider>
+          <AppNavigator navigationRef={navigationRef} />
+        </PaperProvider>
       </NavigationContainer>
     </>
   );
