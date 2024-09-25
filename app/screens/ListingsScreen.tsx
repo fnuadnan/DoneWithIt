@@ -6,10 +6,10 @@ import Card from "../components/Card";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 import routes from "../navigation/routes";
-import useFetch from "../services/hooks/useFetch";
+import useGetListings from "../services/hooks/useGetListings";
 
 const ListingsScreen = ({ navigation }: any) => {
-  const { listings, error, loading, loadListings } = useFetch();
+  const { listings, error, loading, loadListings } = useGetListings();
 
   return (
     <Screen cssProp={styles.container}>
